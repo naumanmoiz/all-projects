@@ -7,6 +7,8 @@
 		"start": "node index.js",
     		"test": "echo \"Error: no test specified\" && exit 1"
 		},
+	"author": "Nauman Moiz",
+  	"license": "ISC",
 	"dependencies": {
 		"express": "^4.15.2",
 		"socket.io": "^2.0.4"
