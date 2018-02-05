@@ -2,7 +2,9 @@
 	"name": "socket-chat-example",
 	"version": "0.0.1",
 	"description": "socket io example app from their website",
-	
+	"engines" : {
+		"node" : "9.4.0"
+	},
 	"scripts": {
 		"start": "node index.js"    		
 		},
