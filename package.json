@@ -2,12 +2,10 @@
 	"name": "socket-chat-example",
 	"version": "0.0.1",
 	"description": "socket io example app from their website",
-	"main": "index.js",
+	
 	"scripts": {
-		"start": "node index.js",
-    		
+		"start": "node index.js"    		
 		},
-
 	"author": "Nauman Moiz",
   	"license": "ISC",
 	"dependencies": {
