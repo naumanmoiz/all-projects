@@ -5,7 +5,7 @@
 
 	"dependencies": {
 			"express": "^4.15.2",
-			"socket.io": "^2.0.4"
+			"socket.io": "^1.7.3"
 		},
 
 	"engines" : {
@@ -18,8 +18,7 @@
 	"main":"index.js",
 	
 	"scripts": {
-		"start": "node index.js",
-		"test": "node index.js"  		
+		"start": "node index.js"		
 		},
 
 	"author": "Nauman Moiz",
