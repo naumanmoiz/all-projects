@@ -17,5 +17,5 @@ io.on('connection', function(socket){
 
 
 http.listen(port, function(){
-	console.log('listen on *:80' + port);
+	console.log('listen on *' + port);
 });
