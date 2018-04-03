@@ -28,24 +28,68 @@ $(document).ready(function(){
     }
 )
 
+
 //update gets the data from the URL
 
 function update(){
-    URL = document.URL;
-    FastResponseURL = "BuckConverterWeb";
-    URL = URL.replace("home.html", "") + FastResponseURL;
+    //URL = document.URL;
+    //FastResponseURL = "BC1";
+    //URL = URL.replace("BC1.html", "") + FastResponseURL;
 
-    URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
-          + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
+    //URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
+      //    + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
+    cdata = {
+      "Vin"  : $('#Vin').val(),
+      "Du"   : $('#Du').val(),
+      "Lu"   : $('#Lu').val(),
+      "Cu"   : $('#Cu').val(),
+      "Ru"   : $('#Ru').val(),
+      "r1"   : $('#r1').val(),
+      "Fu"   : $('#Fu').val()
+    };
+    var posting = $.post("/BC1", cdata);
+    posting.done(function( data ) {
 
-    $.getJSON(URL, function (data) {
+      console.log(data);
+      var lang = '';
+      var jsoninput = '[' + data + ']';
+
+    var obj = $.parseJSON(jsoninput);
+
+    $.each(obj, function() {
+
+      //  lang += this['Vo'] + "<br/>";
+        $('#Vo').text(this['Vo']);
+        $('#deltaIL').text(this['deltaIL']);
+        $('#Io').text(this['Io']);
+        $('#P').text(this['P']);
+
+    });
+
+    $('#result').html(lang);
+      /*
+      console.log("Vo" + data.Vo);
+      $('#Vo').text(data.Vo);
+      $('#deltaIL').text(data.deltaIL);
+      $('#Io').text(data.Io);
+      $('#P').text(data.P);
+    var content = $( data ).find( "#content" );
+    $( "#result" ).empty().append( content );*/
+  });
+
+
+
+    // https://stackoverflow.com/questions/17365039/how-to-send-json-data-from-node-js-to-html-page
+
+/*    $.getJSON("/BC1", cdata, function (cdata,status) {
         //We use JQuery to update the text inside of the field with id=result with the sum.
-        $('#Vo').text(data.Vo);
-        $('#deltaIL').text(data.deltaIL);
-        $('#Io').text(data.Io);
-        $('#P').text(data.P);
+        console.log(status + " " + cdata);
+        $('#Vo').text(cdata.Vo);
+        $('#deltaIL').text(cdata.deltaIL);
+        $('#Io').text(cdata.Io);
+        $('#P').text(cdata.P);
     }
-    );
+  ); */
 }
 
 
@@ -60,9 +104,9 @@ function graph() {
     $.getJSON(URL, function (data1) {
         var j,i;
         //We use JQuery to update the text inside of the field with id=result with the sum.
-      //  for (i in data1) {
-       //     j += "<h3>" + i + data1[i]+ "</h3>";
-       // }
+        //  for (i in data1) {
+        //     j += "<h3>" + i + data1[i]+ "</h3>";
+        // }
         //$('#graphData').text(data1);
 
         google.charts.load('current', {packages: ['corechart']});
