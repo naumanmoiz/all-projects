@@ -94,44 +94,57 @@ function update(){
 
 
 function graph() {
-    URL = document.URL;
-    GraphURL = "BuckConverterGraphData"
-    URL = URL.replace("home.html", "") + GraphURL;
 
-    URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
-          + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
-
-    $.getJSON(URL, function (data1) {
-        var j,i;
-        //We use JQuery to update the text inside of the field with id=result with the sum.
-        //  for (i in data1) {
-        //     j += "<h3>" + i + data1[i]+ "</h3>";
-        // }
-        //$('#graphData').text(data1);
-
-        google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            // Define the chart to be drawn.
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Name');
-            data.addColumn('number', 'Values');
-            var i;
-            //values = $('#graphData').text.data1
-
-            for (i in data1) {
-                data.addRows([[, data1[i]]]);
-            }
-            //j = "<h3>" + values + "</h3>";
-           // document.getElementById('cid').innerHTML = j;
-
-            //ate and draw the chart.
-            var chart = new google.visualization.LineChart(document.getElementById('myLineChart'));
-            chart.draw(data, null);
-        }
+  cdata = {
+    "Vin"  : $('#Vin').val(),
+    "Du"   : $('#Du').val(),
+    "Lu"   : $('#Lu').val(),
+    "Cu"   : $('#Cu').val(),
+    "Ru"   : $('#Ru').val(),
+    "r1"   : $('#r1').val(),
+    "Fu"   : $('#Fu').val()
+  };
+  var posting = $.post("/BC2", cdata);
 
 
-    }
-    );
+    // URL = document.URL;
+    // GraphURL = "BuckConverterGraphData"
+    // URL = URL.replace("home.html", "") + GraphURL;
+    //
+    // URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
+    //       + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
+    //
+    // $.getJSON(URL, function (data1) {
+    //     var j,i;
+    //     //We use JQuery to update the text inside of the field with id=result with the sum.
+    //     //  for (i in data1) {
+    //     //     j += "<h3>" + i + data1[i]+ "</h3>";
+    //     // }
+    //     //$('#graphData').text(data1);
+    //
+    //     google.charts.load('current', {packages: ['corechart']});
+    //     google.charts.setOnLoadCallback(drawChart);
+    //
+    //     function drawChart() {
+    //         // Define the chart to be drawn.
+    //         var data = new google.visualization.DataTable();
+    //         data.addColumn('string', 'Name');
+    //         data.addColumn('number', 'Values');
+    //         var i;
+    //         //values = $('#graphData').text.data1
+    //
+    //         for (i in data1) {
+    //             data.addRows([[, data1[i]]]);
+    //         }
+    //         //j = "<h3>" + values + "</h3>";
+    //        // document.getElementById('cid').innerHTML = j;
+    //
+    //         //ate and draw the chart.
+    //         var chart = new google.visualization.LineChart(document.getElementById('myLineChart'));
+    //         chart.draw(data, null);
+    //     }
+    //
+    //
+    // }
+    // );
 }

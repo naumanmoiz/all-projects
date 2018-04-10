@@ -10,12 +10,13 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+
 
 // Init App
 var app = express();
@@ -74,6 +75,14 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
 
 
 app.use('/', routes);
@@ -82,6 +91,7 @@ app.use('/users', users);
 // Set Port
 app.set('port', (process.env.PORT || 3000));
 
-app.listen(app.get('port'), function(){
+app.listen(app.get('port'), function(err,next){
+
 	console.log('Server started on port '+app.get('port'));
 });

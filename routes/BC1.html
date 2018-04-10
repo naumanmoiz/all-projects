@@ -30,17 +30,33 @@
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
   <div class="navbar navbar-static-top">
         <!-- navbar-fixed-top -->
+     		<div class="navbar-header">
+          <div class=container>
+  	        <div class="span12">
+  	        	<li class="navbar-left">
+  	        		<li><a class="brand" href="https://www.nsf.gov"> <img src="assets/img/NSFLogo.png" alt="Logo"></a></li>
+                <li class="span 6 pull-right"><a class="brand" href="https://www.niu.edu"><img src="assets/img/niulogo2.png" alt="Logo3"></a></li>
+  	        	</li>
+  		    </div>
+        </div>
+        	</div>
+  	</div>
+  <!-- <div class="navbar navbar-static-top">
         <div class="navbar-header">
             <div class="container">
-              <u1 class="navbar-left">
-                <li><a class="brand" href="https://www.nsf.gov"> <img src="assets/img/NSFLogo.png" alt="Logo"></a></li>
-              </u1>
-            <u1 class="nav">
-                <li><a class="brand" href="https://www.niu.edu"><img src="assets/img/niulogo2.png" alt="Logo3"></a></li>
-            </u1>
+              <table>
+                <tr>
+                  <td class="span3" align="left">
+                      <li><a class="brand" href="https://www.nsf.gov"> <img src="assets/img/NSFLogo.png" alt="Logo"></a></li>
+                  </td>
+                  <td class="span12">
+                      <li class="pull-right" align=right><a class="brand" href="https://www.niu.edu"><img src="assets/img/niulogo2.png" alt="Logo3"></a></li>
+                  </td>
+                </tr>
+              <table>
           </div>
           </div>
-    </div>
+    </div> -->
   <div class="nav-agency">
   <div class="navbar navbar-static-top">
         <!-- navbar-fixed-top -->
@@ -67,7 +83,7 @@
                   <li><a href="http://www.niutoday.info/2017/10/05/new-grant-to-fund-virtual-renewable-energy-laboratory/?utm_campaign=lab%20grant&utm_medium=Email&utm_source=NIU%20Today"><font color="#111111"> Updates </font></a>
                   </li>
 
-                  <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:"><font color="#111111"> People </font><b class="caret"></b></a>
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:"><font color="#111111"> People </font><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><a href="https://niu.edu/ceet/about/faculty-and-instructors/guo-liping.shtml">Dr. Liping Guo</a></li>
                       <li><a href="https://niu.edu/ceet/about/faculty-and-instructors/otieno-andrew.shtml">Dr. Andrew W. Otieno</a></li>
@@ -96,60 +112,114 @@
 
 
   			<div class="well">
-  			<h4> Concepts </h4>
-		  			<p>Paragraph text 1</p>
+  			<h4> Concept </h4>
+		  			<p>DC-DC Converters are power electronics circuits that convert a dc input voltage to a different dc output voltage level.</p>
 	  		</div>
 
 
 
 	  			<div class="well">
 	  			<h4> Learning Objective </h4>
-		  			<p>Paragraph text 1</p>
+		  			<p>
+              <ol>
+                <li>Characteristics of buck converter</li>
+                <li>Capacitor and inductor selection</li>
+                <li>Output voltage and current</li>
+                <li>Continuous and discontinuous mode</li>
+              </ol>
+             </p>
 	  			</div>
 
 
 
 	  			<div class="well">
 	  			<h4> Materials and Equipment </h4>
-		  			<p>Paragraph text 2</p>
+		  			<p>Power supply, capacitor, inductor, transistor, diode, resistor</p>
 	  			</div>
 
 
 
 	  			<div class="well">
-	  			<h4>Procedures</h4>
-
+	  			<h4>Procedure</h4>
+            <div>
+              <ol>
+                  <li>Make connections of power supply, capacitor, inductor, transistor and load resistor to build the buck converter.<br/>
+                      Vin = 50 V, L = 400 μH, C = 100 μF, f = 20 kHz, R = 20 Ω</li>
+                  <li>Check the circuit connections according to the schematics.</li>
+                  <li>Varying duty cycle
+                      <o1>
+                        <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                        <li>Observe and measure the output voltage.</li>
+                        <li>Vary the duty cycle from 20% to 80% with the interval of 10%.</li>
+                        <li>Measure the output voltage for each of the duty cycle. Compare the measurement with theoretical calculation.</li>
+                      </o1>
+                    </li>
+                    <li>Varying switching frequency
+                      <ol>
+                        <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                        <li>Observe and measure the output voltage ripple. Compare the measurement with theoretical calculation.</li>
+                        <li>Increase the switching frequency to 50 kHz. Observe and measure the output voltage ripple. Compare the measurement with theoretical calculation.</li>
+                        <li>Decrease the switching frequency to 10 kHz. Observe and measure the output voltage ripple. Compare the measurement with theoretical calculation.</li>
+                      </ol>
+                    </li>
+                    <li>Varying load resistor
+                      <ol>
+                        <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                        <li>Measure the load current and output voltage when the load resistance is 20 Ω.</li>
+                        <li>Measure the load current and output voltage when the load resistance is 40 Ω.</li>
+                      </ol>
+                    </li>
+                </ol>
+            </div>
 	  			<!--we're going to use a table to organize the elements on our page-->
      			<div class="container">
 
-     				<div class="row">
-        				<div class="col-xs-6">
-	     					<div style="display: inline-block">
+     				<div class="container-fluid">
+        				<div class="span6">
+    	     				<div style="display: inline-block">
 
-								 <div class="container"> <img src="assets/img/buckC.jpg" alt="Banner" /> </div>
+    								 <div class="container"> <img src="assets/img/buckC.jpg" alt="Banner" /> </div>
 
-							</div>
-						</div>
+    							</div>
+    						</div>
 
-						<div class="col-xs-6">
+						<div class="span3">
 							<div style="display: inline-block">
                   <form action="/" id="elementSubmit" method="POST">
-                        Voltage input:
-							          <input type=text id='Vin' name="Vin" value='0'>
-                        Duty Cycle:
-							          <input type=text id='Du' name="Du" value='0'>
-                        Inductance (in henry)
-							          <input type=text id='Lu' name="Lu" value='0'>
-                        Capacitance
-                        <input type=text id='Cu' name="Cu" value='0'>
-                        Resistance
-                        <input type=text id='Ru' name="Ru" value='10'>
-                        Cap Resistance
-                        <input type=text id='r1' name="r1" value='1'>
-                        Frequency
-                        <input type=text id='Fu' name="Fu" value='50000'>
-                        <input type="button" id="submitButton" class="btn btn-primary" value="Submit">
-                        <button type="button" class="btn btn-secondary" id='submitGraph'>Graph</button>
+                    <table>
+                        <tr>
+                            <td>Voltage input:</td>
+    							          <td><input type=text id='Vin' name="Vin" value='0'><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Duty Cycle:</td>
+    							          <td><input type=text id='Du' name="Du" value='0'><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Inductance (in henry)</td>
+    							          <td><input type=text id='Lu' name="Lu" value='0'><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Capacitance</td>
+                            <td><input type=text id='Cu' name="Cu" value='0'><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Resistance</td>
+                            <td><input type=text id='Ru' name="Ru" value='10'><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Cap Resistance</td>
+                            <td><input type=text id='r1' name="r1" value='1'><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Frequency</td>
+                            <td><input type=text id='Fu' name="Fu" value='50000'><br/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" id="submitButton" class="btn btn-primary" value="Submit"></td>
+                            <td><input type="button" id="submitGraph" class="btn btn-primary" value="Graph"></td>
+                        </tr>
+                    </table>
                     </form>
 
                     <div id="result"> </div>
@@ -190,7 +260,7 @@
 
 							         </tr>
 
-							         <tr>
+							         <tr class=hidden>
 
 							             <td>deltaIL</td>
 
