@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Web Project",
   "dependencies": {
+    "@shopify/draggable": "^1.0.0-beta.6",
     "bcryptjs": "*",
     "body-parser": "*",
     "connect-flash": "*",
@@ -19,7 +20,8 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "ssi": "^0.3.0"
   },
   "main": "index.js",
   "scripts": {

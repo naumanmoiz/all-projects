@@ -46,16 +46,34 @@ app.post('/BC1', function(req, res){
         });
 
         client.on('data', function(data) {
-        	console.log('Received: ' + data);
+        	console.log('Received :' + data);
+          //console.log(data +"before parse");
           outputobj = JSON.parse(data);
+          console.log(outputobj +"after parse");
+
+
           console.log("Vo : " + outputobj.Vo);
           console.log("Io : " + outputobj.Io);
           console.log("P  : " + outputobj.P);
           console.log("dIL: " + outputobj.deltaIL);
+          console.log("time" + outputobj.Time);
+          console.log("Outputs Data" + outputobj["Outputs Data"]);
+        //  console.log("Outputs data" + outputobj.O)
+          for(var i in outputobj){
+            console.log("objects are");
+            console.log(i);
+          }
+        //  res.render('graphvalues',data);
+
+
+
           //console.log(typeof(outputobj.deltaIL));
           res.end(JSON.stringify(outputobj));
+
         	client.destroy(); // kill client after server's response
         });
+
+
 
 
 
@@ -128,10 +146,10 @@ console.log('Connected');
 */
 
 app.get('/',function(req,res){
-  res.sendFile('index.html');
+  res.sendFile(__dirname + '/routes/index.shtml');
   //It will find and locate index.html from View or Scripts
 });
 
 
 
-app.listen(process.env.PORT || 80);
+app.listen(process.env.PORT || 3000);
