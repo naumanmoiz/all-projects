@@ -61,8 +61,9 @@ function update(){
         console.log("objects are");
         console.log(i);
       }
+    
 
-    $.each(obj, function() {
+    $.each(obj.["input cluster"], function() {
 
       //  lang += this['Vo'] + "<br/>";
         $('#Vo').text(this['Vo']);
