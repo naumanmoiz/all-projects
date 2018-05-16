@@ -59,11 +59,14 @@ function update(){
     var obj = $.parseJSON(data);
     for(var i in obj){
         console.log("objects");
-        console.log(i);
+        console.log(outputobj[i]);
       }
     
 
     $.each(obj, function() {
+    	//console.log( obj.Time);
+    	//console.log(obj.["input cluster")];
+    	//console.log(obj."input cluster".Vo);
 
       //  lang += this['Vo'] + "<br/>";
         $('#Vo').text(this['Vo']);
