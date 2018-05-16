@@ -58,7 +58,7 @@ function update(){
 
     var obj = $.parseJSON(data);
     for(var i in obj){
-        console.log("objects are");
+        console.log("objects");
         console.log(i);
       }
     
