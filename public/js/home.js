@@ -63,7 +63,7 @@ function update(){
       }
     
 
-    $.each(obj.["input cluster"], function() {
+    $.each(obj, function() {
 
       //  lang += this['Vo'] + "<br/>";
         $('#Vo').text(this['Vo']);
