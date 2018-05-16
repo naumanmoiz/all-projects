@@ -94,22 +94,19 @@ function update(){
 //				console.log(i);
 //			data.addRows([[,ydata[i]]]);
 //			}
-			for (i in xdata) {
-				
-				
-				 
+			for (i in xdata) { 
 				for(j in ydata){
 					console.log(xdata[i] +' '+ ydata[j][i]);
 					data.addRows([[parseFloat(xdata[i]),parseFloat(ydata[j][i])]]);
 				}
 				
 			}
-			//j = "<h3>" + values + "</h3>";
-			// document.getElementById('cid').innerHTML = j;
+//var options = {'title':'My Average Day', 'width':400, 'height':300};
+			var options = {'title':'Voltage vs time graph', 'width':800, 'height':600};
 
 			
 			var chart = new google.visualization.LineChart(document.getElementById('graphData'));
-			chart.draw(data, null);
+			chart.draw(data, options);
 		}
 
 
