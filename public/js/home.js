@@ -54,8 +54,13 @@ function update(){
       console.log("posting data"+data);
       var lang = '';
       var jsoninput = '[' + data + ']';
+      
 
-    var obj = $.parseJSON(jsoninput);
+    var obj = $.parseJSON(data);
+    for(var i in obj){
+        console.log("objects are");
+        console.log(i);
+      }
 
     $.each(obj, function() {
 
