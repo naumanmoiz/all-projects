@@ -14,7 +14,7 @@ addTwoWithSubmit.js. This file is analogous to the controller element
 
 of a traditional Model, View, Controller application architecture.
 
-*/
+ */
 
 //Disable async to allow for sequential behavior
 
@@ -23,9 +23,9 @@ async: false;
 //Execute the following code once page is fully loaded
 
 $(document).ready(function(){
-        $( "#submitButton" ).click(update);
-        $("#submitGraph").click(graph);
-    }
+	$( "#submitButton" ).click(update);
+	$("#submitGraph").click(graph);
+}
 )
 
 
@@ -33,76 +33,99 @@ $(document).ready(function(){
 
 function update(){
 	console.log("hello in update method from homejs")
-    //URL = document.URL;
-    //FastResponseURL = "BC1";
-    //URL = URL.replace("BC1.html", "") + FastResponseURL;
+	//URL = document.URL;
+	//FastResponseURL = "BC1";
+	//URL = URL.replace("BC1.html", "") + FastResponseURL;
 
-    //URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
-      //    + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
-    cdata = {
-      "Vin"  : $('#Vin').val(),
-      "Du"   : $('#Du').val(),
-      "Lu"   : $('#Lu').val(),
-      "Cu"   : $('#Cu').val(),
-      "Ru"   : $('#Ru').val(),
-      "r1"   : $('#r1').val(),
-      "Fu"   : $('#Fu').val()
-    };
-    var posting = $.post("/BC1", cdata);
-    posting.done(function( data ) {
+	//URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
+	//    + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
+	cdata = {
+		"Vin"  : $('#Vin').val(),
+		"Du"   : $('#Du').val(),
+		"Lu"   : $('#Lu').val(),
+		"Cu"   : $('#Cu').val(),
+		"Ru"   : $('#Ru').val(),
+		"r1"   : $('#r1').val(),
+		"Fu"   : $('#Fu').val()
+	};
+	var posting = $.post("/BC1", cdata);
+	posting.done(function( data ) {
 
-      console.log("posting data"+data);
-      var lang = '';
-      var jsoninput = '[' + data + ']';
-      
+		console.log("posting data"+data);
+		var lang = '';
+		//var jsoninput = '[' + data + ']';
+		
+		var obj = $.parseJSON(data);
+		for(var i in obj){
+			console.log(obj[i]);
+		}
+	 console.log("Time" + obj['Time']);
+		console.log("Outputs Data" + obj['Outputs Data']);
+		var ydata = obj['Outputs Data'];
+		var xdata = obj['Time']
+		console.log(xdata[5] + "yes!");
+//		for(j in ydata){console.log(j);
+//			console.log(ydata[j][5] + "superb!");
+//			console.log(ydata[0][5]);}
+//			
+		$.each(obj, function() {
 
-    var obj = $.parseJSON(data);
-    for(var i in obj){
-        console.log("objects");
-        console.log(outputobj[i]);
-      }
-    
+			$('#Vo').text(this['Vo']);
+			$('#deltaIL').text(this['deltaIL']);
+			$('#Io').text(this['Io']);
+			$('#P').text(this['P']);
 
-    $.each(obj, function() {
-    	//console.log( obj.Time);
-    	//console.log(obj.["input cluster")];
-    	//console.log(obj."input cluster".Vo);
+		});
 
-      //  lang += this['Vo'] + "<br/>";
-        $('#Vo').text(this['Vo']);
-        $('#deltaIL').text(this['deltaIL']);
-        $('#Io').text(this['Io']);
-        $('#P').text(this['P']);
-
-    });
-
-    $('#result').html(lang);
-
-
-  
-
-
-
+		$('#result').html(lang);
+		
+		google.charts.load('current', {packages: ['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
 
 
+		function drawChart() {
+			// Define the chart to be drawn.
+			var data = new google.visualization.DataTable();
+			data.addColumn('number', 'Name');
+			data.addColumn('number', 'Values');
+			var i,j;
+			//values = $('#graphData').text.data1
+//			for (i in ydata){
+//				console.log(i);
+//			data.addRows([[,ydata[i]]]);
+//			}
+			for (i in xdata) {
+				
+				
+				 
+				for(j in ydata){
+					console.log(xdata[i] +' '+ ydata[j][i]);
+					data.addRows([[parseFloat(xdata[i]),parseFloat(ydata[j][i])]]);
+				}
+				
+			}
+			//j = "<h3>" + values + "</h3>";
+			// document.getElementById('cid').innerHTML = j;
+
+			
+			var chart = new google.visualization.LineChart(document.getElementById('graphData'));
+			chart.draw(data, null);
+		}
 
 
+		
 
-      /*
-      console.log("Vo" + data.Vo);
-      $('#Vo').text(data.Vo);
-      $('#deltaIL').text(data.deltaIL);
-      $('#Io').text(data.Io);
-      $('#P').text(data.P);
-    var content = $( data ).find( "#content" );
+
+		/* var content = $( data ).find( "#content" );
     $( "#result" ).empty().append( content );*/
-  });
+	});
+
+	
 
 
+	// https://stackoverflow.com/questions/17365039/how-to-send-json-data-from-node-js-to-html-page
 
-    // https://stackoverflow.com/questions/17365039/how-to-send-json-data-from-node-js-to-html-page
-
-/*    $.getJSON("/BC1", cdata, function (cdata,status) {
+	/*    $.getJSON("/BC1", cdata, function (cdata,status) {
         //We use JQuery to update the text inside of the field with id=result with the sum.
         console.log(status + " " + cdata);
         $('#Vo').text(cdata.Vo);
@@ -115,78 +138,55 @@ function update(){
 
 
 function graph() {
+	cdata = {
+			"Vin"  : $('#Vin').val(),
+			"Du"   : $('#Du').val(),
+			"Lu"   : $('#Lu').val(),
+			"Cu"   : $('#Cu').val(),
+			"Ru"   : $('#Ru').val(),
+			"r1"   : $('#r1').val(),
+			"Fu"   : $('#Fu').val()
+	};
+	var posting = $.post("/BC1", cdata);
 
-  cdata = {
-    "Vin"  : $('#Vin').val(),
-    "Du"   : $('#Du').val(),
-    "Lu"   : $('#Lu').val(),
-    "Cu"   : $('#Cu').val(),
-    "Ru"   : $('#Ru').val(),
-    "r1"   : $('#r1').val(),
-    "Fu"   : $('#Fu').val()
-  };
-  var posting = $.post("/BC1", cdata);
+	posting.done(function( data ) {
 
-  posting.done(function( data ) {
+		console.log("posting data"+data);
+		var lang = '';
+		var jsoninput = '[' + data + ']';
 
-      console.log("posting data"+data);
-      var lang = '';
-      var jsoninput = '[' + data + ']';
+		var obj = $.parseJSON(jsoninput);
 
-    var obj = $.parseJSON(jsoninput);
+		$.each(obj, function() {
 
-    $.each(obj, function() {
+			//  lang += this['Vo'] + "<br/>";
+			$('#Vo').text(this['Vo']);
+			$('#deltaIL').text(this['deltaIL']);
+			$('#Io').text(this['Io']);
+			$('#P').text(this['P']);
 
-      //  lang += this['Vo'] + "<br/>";
-        $('#Vo').text(this['Vo']);
-        $('#deltaIL').text(this['deltaIL']);
-        $('#Io').text(this['Io']);
-        $('#P').text(this['P']);
-        
+		});
 
-    });
+		$('#graphresult').html(lang);
 
-    $('#graphresult').html(lang);
-    
-  });
-    // URL = document.URL;
-    // GraphURL = "BuckConverterGraphData"
-    // URL = URL.replace("home.html", "") + GraphURL;
-    //
-    // URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
-    //       + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
-    //
-    // $.getJSON(URL, function (data1) {
-    //     var j,i;
-    //     //We use JQuery to update the text inside of the field with id=result with the sum.
-    //     //  for (i in data1) {
-    //     //     j += "<h3>" + i + data1[i]+ "</h3>";
-    //     // }
-    //     //$('#graphData').text(data1);
-    //
-    //     google.charts.load('current', {packages: ['corechart']});
-    //     google.charts.setOnLoadCallback(drawChart);
-    //
-    //     function drawChart() {
-    //         // Define the chart to be drawn.
-    //         var data = new google.visualization.DataTable();
-    //         data.addColumn('string', 'Name');
-    //         data.addColumn('number', 'Values');
-    //         var i;
-    //         //values = $('#graphData').text.data1
-    //
-    //         for (i in data1) {
-    //             data.addRows([[, data1[i]]]);
-    //         }
-    //         //j = "<h3>" + values + "</h3>";
-    //        // document.getElementById('cid').innerHTML = j;
-    //
-    //         //ate and draw the chart.
-    //         var chart = new google.visualization.LineChart(document.getElementById('myLineChart'));
-    //         chart.draw(data, null);
-    //     }
-    //
-    //
-    // }
-    // );
+	});
+	// URL = document.URL;
+	// GraphURL = "BuckConverterGraphData"
+	// URL = URL.replace("home.html", "") + GraphURL;
+	//
+	// URL = URL + "?Vin=" + $('#Vin').val() + "&D=" + $('#D').val() + "&L=" + $('#L').val() + "&C=" + $('#C').val() + "&R=" + $('#R').val()
+	//       + "&r1=" + $('#r1').val() + "&F=" + $('#F').val();
+	//
+	// $.getJSON(URL, function (data1) {
+	//     var j,i;
+	//     //We use JQuery to update the text inside of the field with id=result with the sum.
+	//     //  for (i in data1) {
+	//     //     j += "<h3>" + i + data1[i]+ "</h3>";
+	//     // }
+	//     //$('#graphData').text(data1);
+	//
+
+	//
+	// }
+	// );
 }
