@@ -32,6 +32,7 @@ $(document).ready(function(){
 //update gets the data from the URL
 
 function update(){
+	console.log("hello in update method from homejs")
     //URL = document.URL;
     //FastResponseURL = "BC1";
     //URL = URL.replace("BC1.html", "") + FastResponseURL;
@@ -115,9 +116,30 @@ function graph() {
     "r1"   : $('#r1').val(),
     "Fu"   : $('#Fu').val()
   };
-  var posting = $.post("/BC2", cdata);
+  var posting = $.post("/BC1", cdata);
 
+  posting.done(function( data ) {
 
+      console.log("posting data"+data);
+      var lang = '';
+      var jsoninput = '[' + data + ']';
+
+    var obj = $.parseJSON(jsoninput);
+
+    $.each(obj, function() {
+
+      //  lang += this['Vo'] + "<br/>";
+        $('#Vo').text(this['Vo']);
+        $('#deltaIL').text(this['deltaIL']);
+        $('#Io').text(this['Io']);
+        $('#P').text(this['P']);
+        
+
+    });
+
+    $('#graphresult').html(lang);
+    
+  });
     // URL = document.URL;
     // GraphURL = "BuckConverterGraphData"
     // URL = URL.replace("home.html", "") + GraphURL;

@@ -49,7 +49,6 @@ app.post('/BC1', function(req, res){
         	console.log('Received :' + data);
           //console.log(data +"before parse");
           outputobj = JSON.parse(data);
-          console.log(outputobj +"after parse");
 
 
           console.log("Vo : " + outputobj.Vo);
@@ -58,6 +57,31 @@ app.post('/BC1', function(req, res){
           console.log("dIL: " + outputobj.deltaIL);
           console.log("time" + outputobj.Time);
           console.log("Outputs Data" + outputobj["Outputs Data"]);
+          
+//          google.charts.load('current', {packages: ['corechart']});
+//          google.charts.setOnLoadCallback(drawChart);
+//               function drawChart() {
+//                   // Define the chart to be drawn.
+//                   var data = new google.visualization.DataTable();
+//                   data.addColumn('string', 'Name');
+//                   data.addColumn('number', 'Values');
+//                   var i;
+//                   //values = $('#graphData').text.data1
+//          
+//                   for (i in outputobj.Time,outputObj["Outputs Data"]) {
+//                	   console.log(i + "this is I");
+//                	   console.log(i + "this is j");
+//                	   
+//                       data.addRows([[, data1[i]]]);
+//                   }
+//                   //j = "<h3>" + values + "</h3>";
+//                  // document.getElementById('cid').innerHTML = j;
+//          
+//                   //ate and draw the chart.
+//                   var chart = new google.visualization.LineChart(document.getElementById('myLineChart'));
+//                   chart.draw(data, null);
+//               }
+          
         //  console.log("Outputs data" + outputobj.O)
           for(var i in outputobj){
             console.log("objects are");

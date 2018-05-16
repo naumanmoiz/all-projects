@@ -67,8 +67,11 @@ function drawChart() {
   chart.draw(data, options);
 }
 </script>
-<script> document.getElementById('cid').innerHTML = graphvalues
-console.log(graphvalues); </script>
+
+<script> 
+//document.getElementById('cid').innerHTML = graphvalues
+//console.log(graphvalues); 
+</script>
 
 	<link href="https://use.fontawesome.com/dcfc86ee58.css" media="all" rel="stylesheet">
 </head>
@@ -409,18 +412,20 @@ console.log(graphvalues); </script>
                             <tr>
                                 <td><input type="button" id="submitButton" class="btn btn-primary" value="Submit"></td>
                                 <td><input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-primary" value="Graph"></td>
+                                
                             </tr>
                         </table>
                         </form>
 
                         <div id="result"> </div>
+                        <div id="graphresult"> </div>
 
                           <table>
                            <tr>
 
                                <td>Output Voltage</td>
 
-                               <td><div id="Vo" value=>0</div></td>
+                               <td><div id="Vo" >0</div></td>
 
                            </tr>
 
