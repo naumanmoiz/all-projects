@@ -44,6 +44,8 @@ app.post('/BC1', function(req, res){
         	console.log('Connected');
         	client.write(JSON.stringify(req_input));
         });
+        
+        
 
         client.on('data', function(data) {
         	console.log('Received :' + data);
@@ -93,6 +95,7 @@ app.post('/BC1', function(req, res){
 
           //console.log(typeof(outputobj.deltaIL));
           res.end(JSON.stringify(outputobj));
+          
 
         	client.destroy(); // kill client after server's response
         });
@@ -116,7 +119,7 @@ app.post('/BC1', function(req, res){
 });
 
 app.post('/BC2', function(req, res){
-        req_input = {
+/*        req_input = {
              Vin : req.body.Vin,
               Du : req.body.Du,
               Lu : req.body.Lu,
@@ -130,7 +133,7 @@ app.post('/BC2', function(req, res){
         //It's useful so that we know what infomration is being transferred
         //using the server
         console.log(req_input);
-        console.log("Hi i am here");
+        console.log("Hi i am here");*/
 
         //convert the response in JSON format
       //  res.sendFile(__dirname + "/" + "routes/BC1.html");
