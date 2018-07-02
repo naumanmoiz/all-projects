@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect('process.env.MONGODB_URI');
 var db = mongoose.connection;
 
 
