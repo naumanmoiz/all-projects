@@ -30,6 +30,33 @@ router.get('/login', function(req, res){
 	res.render('login');
 });
 
+router.get('/gallery', function(req, res){
+	console.log('got into gallery get function users.js');
+	res.render('gallery');
+});
+
+router.get('/contact', function(req, res){
+	console.log('got into gallery get function users.js');
+	res.render('contact');
+});
+
+router.get('/people', function(req, res){
+	console.log('got into gallery get function users.js');
+	res.render('people');
+});
+router.get('/buckConverter', function(req, res){
+	console.log('got into buckConverter get function users.js');
+	res.render('buckConverter');
+});
+
+router.get('/about', function(req, res){
+	console.log('got into about get function users.js');
+	res.render('about');
+});
+
+
+
+
 // Register User
 router.post('/register', function(req, res){
 	console.log('got into register post function users');
