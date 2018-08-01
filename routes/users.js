@@ -21,13 +21,13 @@ var User = require('../models/user');
 // Register
 router.get('/register', function(req, res){
 	console.log('got into register get function ');
-	res.redirect('/register.shtml');
+	res.render('register');
 });
 
 // Login
 router.get('/login', function(req, res){
 	console.log('got into login get function users.js');
-	res.redirect('/login.shtml');
+	res.render('login');
 });
 
 // Register User
@@ -50,7 +50,7 @@ router.post('/register', function(req, res){
 	var errors = req.validationErrors();
 
 	if(errors){
-		res.render('../users/register',{
+		res.render('register',{
 			errors:errors
 		});
 	} else {
@@ -110,7 +110,7 @@ router.post('/login',
 	req.flash('success_msg', 'You are logged in');
 	
 	
-	res.redirect('/index.shtml');
+	res.render('index');
 	
     //res.redirect('/');
   });

@@ -217,7 +217,7 @@
 		</div>
 	</li>
 	<li class="active"><a href="contact.shtml" target="_parent">Contact Us</a></li>
-	<li class="active"><a href="login.shtml" target="_parent">Login</a></li>
+	<li class="active"><a href="http://renewablelab.niu.edu/users/login" target="_parent">Login</a></li>
 </ul>
 </div>
 </nav>
@@ -264,26 +264,12 @@
 	 <div class="pull-right">
 	<input TYPE="button"class="btn btn-danger form-controlx" value="SignUp"  onClick="parent.location='/users/register'">
 	  <button type="submit"  value="Login" class="btn btn-danger form-controlx" aria-hidden="true" data-loading-text="Logging in..."> Login </button>
-	  <a href="login.shtml" class="btn btn-default form-controlx" role="button">Cancel</a>  
+	  <a href="/users/login" class="btn btn-default form-controlx" role="button">Cancel</a>  
 		</div>
 	</div>
 
 </form>
-            <!-- <form class="form-inline" role="form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="First Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Last Name">
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Enter Email">
-              </div>
-              <div>
-                <textarea class="form-control" rows="3" placeholder="Enter Description here"></textarea>
-              </div>
-              <input type="button" class="btn btn-primary btn-lg" Value="Submit">
-            </form> -->
+            
           </div>
    </div>
 

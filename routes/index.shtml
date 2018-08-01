@@ -217,7 +217,7 @@
 		</div>
 	</li>
 	<li class="active"><a href="contact.shtml" target="_parent">Contact Us</a></li>
-	<li class="active"><a href="login.shtml" target="_parent">Login</a></li>
+	<li class="active"><a href="http://renewablelab.niu.edu/users/login" target="_parent">Login</a></li>
 </ul>
 </div>
 </nav>

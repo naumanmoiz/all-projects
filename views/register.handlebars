@@ -1,29 +1,88 @@
-<h2 class="page-header">Register</h2>
-{{#if errors}}
+
+<div class="row main-content" role="main"><a id="main_content" ></a> <!-- Start Main Content Row -->
+  <ul class="breadcrumb">
+    <li><a href="index.shtml" target="_parent">Home</a></li>
+    <li class="active">Contact Us</li>
+  </ul>
+    <div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+        <h2>Register</h2>
+        
+        
+        {{#if errors}}
       {{#each errors}}
         <div class="alert alert-danger">{{msg}}</div>
       {{/each}}
 {{/if}}
-<form method="post" action="/users/register">
+       
+       
+          <div class="input-group">
+          <form method="post"  class="row" role="form" action="/users/register">
+          
+          
    <div class="form-group">
     <label>Name</label>
-    <input type="text" class="form-control" placeholder="Name" name="name">
-  </div>
+    <input type="text" class="form-control" placeholder="Name" name="name" autocomplete="off" required> 
+  </div><br>
+  
   <div class="form-group">
     <label>Username</label>
-    <input type="text" class="form-control" placeholder="Username" name="username">
-  </div>
+    <input type="text" class="form-control" placeholder="Username" name="username" autocomplete="off" required>
+  </div><br>
    <div class="form-group">
     <label>Email</label>
-    <input type="email" class="form-control" placeholder="Email" name="email">
-  </div>
+    <input type="email" class="form-control" placeholder="Email" name="email" autocomplete="off" required>
+  </div><br>
   <div class="form-group">
     <label>Password</label>
-    <input type="password" class="form-control" placeholder="Password" name="password">
-  </div>
+    <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off" required>
+  </div><br>
   <div class="form-group">
     <label>Confirm Password</label>
-    <input type="password" class="form-control" placeholder="Password" name="password2">
+    <input type="password" class="form-control" placeholder="Password" name="password2" autocomplete="off" required>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  
+        <div class="row"> <!--empty row to add some margin when in mobile view-->
+        <br />
+        </div>
+        <br />
+        <div class="row">
+            <div class="pull-right">
+                <button id="BtnSubmitLogin" type="submit" class="btn btn-danger form-controlx" aria-hidden="true" data-loading-text="Logging in...">Submit</button>
+                <a href="http://renewablelab.niu.edu/users/login" class="btn btn-default form-controlx" role="button">Cancel</a>         
+            </div>
+        </div> <!--row-->  
+        
+        <div class="row"> <!--empty row to add some margin when in mobile view-->
+        <br />
+        </div>
+<!--   <button type="submit" class="btn btn-default">Submit</button> -->
 </form>
+    </div>
+          
+   </div>
+<!--    <div class="col-xs-12 col-sm-6 col-md-6">      -->
+<!--     </div> -->
+
+
+<div class="col-sm-3 col-sm-pull-9 leftCol">
+	<div class="panel-body leftnav" ></div><div class="well contact-us">
+<h3>Contact Us</h3>
+<address>
+<strong>Virtual Renewable Energy Laboratory</strong><br />
+PI:, Liping Guo, Ph.D.<br />
+<a href="tel:815-753-5615">815-753-1350</a><br />
+<a href="mailto:lguo@niu.edu">lguo@niu.edu</a>
+</address>
+	<hr>
+Co-PI:, Andrew W. Otieno, Ph.D.<br />
+<a href="tel:815-753-5615">815-753-1754</a><br />
+<a href="mailto:otieno@niu.edu">otieno@niu.edu</a>
+</div>
+<p><small>The project is funded by the <a href="https://www.nsf.gov/" target="_blank">National Science Foundation</a> (NSF) Improving Undergraduate STEM Education program (DUE-1712146) from June 2017 to May 2020.</small></p>
+<a href="https://www.nsf.gov/"  target="_blank"><img src="http://renewablelab.niu.edu/_images/nsf-logo.jpg" alt="National Science Foundation logo" class="img-responsive" ></a>
+	</div>
+
+
+</div><!-- /Main Content -->
+
+
