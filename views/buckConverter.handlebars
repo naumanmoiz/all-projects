@@ -12,7 +12,7 @@
                   <p>DC-DC Converters are power electronics circuits that convert a dc input voltage to a different dc output voltage level.</p>
                   <p> 
                     <figure class="figure" align="center">
-                      <img alt="Fig1" src="_images\fig1.jpg"/>
+                      <img alt="Fig1" src="/_images/fig1.jpg"/>
                       <figcaption class="figure-caption"><small>Figure 1: A buck converter on a printed circuit board</small></figcaption>
                     </figure>
                   
@@ -32,21 +32,21 @@
                   </p>
                   <p>
                     <figure class="figure" align=center>
-                      <img class="img-responsive" alt="Fig2" src="_images\fig2.jpg"/>
+                      <img class="img-responsive" alt="Fig2" src="/_images/fig2.jpg"/>
                       <figcaption class="figure-caption"><small>Figure 2. Schematics of a buck converter</small></figcaption>
                     </figure>
                   </p>
                   <p>When the switch is closed, the diode is reverse biased. The equivalent circuit is shown in Figure 3.</p>
                   <p>
                     <figure class="figure" align=center>
-                      <img class="img-responsive" alt="Fig3" src="_images\fig3.jpg"/>
+                      <img class="img-responsive" alt="Fig3" src="/_images/fig3.jpg"/>
                       <figcaption class="figure-caption"><small>Figure 3. Equivalent circuit when the switch is closed</small></figcaption>
                     </figure>
                   </p>
                   <p>When the switch is open, the diode is forward biased. The equivalent circuit is shown in Figure 4.</p>
                   <p>
                     <figure class="figure" align="center">
-                      <img class="img-responsive" alt="Fig4" src="_images\fig4.jpg"/>
+                      <img class="img-responsive" alt="Fig4" src="/_images/fig4.jpg"/>
                       <figcaption class="figure-caption"><small>Figure 4. Equivalent circuit when the switch is open</small></figcaption>
                     </figure>
                   </p>
@@ -54,7 +54,7 @@
                     obtain desired output voltage.</p>
                   <p>
                     <figure class="figure" align=center>
-                      <img class="img-responsive" alt="Fig5" src="_images\fig5.jpg"/>
+                      <img class="img-responsive" alt="Fig5" src="/_images/fig5.jpg"/>
                     </figure>
                   </p>
               <h4> Learning Objective </h4>
@@ -108,7 +108,7 @@
                     <div class="span6">
                       <div style="display: inline-block">
 
-                         <div class="container"> <img src="_images/resistor.svg" width="200" height="40" alt="Banner" /> </div>
+                         <div class="container"> <img src="/_images/resistor.svg" width="200" height="40" alt="Banner" /> </div>
                          <input type="hidden" class="schematic" name="schematic1" width="400" height="400"/>
                         <!-- <canvas class="grid">Re</canvas> --> 
                          <object class="diode" style="height:10px; width:40px"></object>
@@ -117,89 +117,94 @@
 
                 <div class="span3">
                   <div style="display: inline-block">
-                      <form action="/" id="elementSubmit" method="POST" style="width: 981px; ">
-                        <table>
-                            <tr>
-                                <td>Voltage input:</td>
-                                <td><input type=text id='Vin' name="Vin" value='0'><br/></td>
-                            </tr>
-                            <tr>
-                                <td>Duty Cycle:</td>
-                                <td><input type=text id='Du' name="Du" value='0'><br/></td>
-                            </tr>
-                            <tr>
-                                <td>Inductance (in henry)</td>
-                                <td><input type=text id='Lu' name="Lu" value='0'><br/></td>
-                            </tr>
-                            <tr>
-                                <td>Capacitance</td>
-                                <td><input type=text id='Cu' name="Cu" value='0'><br/></td>
-                            </tr>
-                            <tr>
-                                <td>Resistance</td>
-                                <td><input type=text id='Ru' name="Ru" value='10'><br/></td>
-                            </tr>
-                            <tr>
-                                <td>Cap Resistance</td>
-                                <td><input type=text id='r1' name="r1" value='1'><br/></td>
-                            </tr>
-                            <tr>
-                                <td>Frequency</td>
-                                <td><input type=text id='Fu' name="Fu" value='50000'><br/></td>
-                            </tr>
-                            <tr>
-                                <td><input type="button" id="submitButton" class="btn btn-primary" value="Submit"></td>
-                                <td><input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-primary" value="Graph"></td>
+                      <form action="/users/buckConverter" class = "row" role = "form" id="elementSubmit" method="POST" >
+                      
+                      <div class="form-group">
+    <label>Voltage input</label>
+    <input type="number" step= "any" class="form-control" placeholder="Vin" name="Vin" autocomplete="on" required> 
+  </div><br>
+     <div class="form-group">
+    <label>Duty Cycle</label>
+    <input type="number" step= "any" class="form-control" placeholder="Du" name="Du" autocomplete="on" required> 
+  </div><br>
+  <div class="form-group">
+    <label>Inductance (in henry)</label>
+    <input type="number" step= "any" class="form-control" placeholder="Lu" name="Lu" autocomplete="on" required> 
+  </div><br>
+  <div class="form-group">
+    <label>Capacitance</label>
+    <input type="number" step= "any" class="form-control" placeholder="Cu" name="Cu" autocomplete="on" required> 
+  </div><br>
+  <div class="form-group">
+    <label>Resistance</label>
+    <input type="number" step= "any" class="form-control" placeholder="Ru" name="Ru" value = '10' autocomplete="on" required> 
+  </div><br>
+  <div class="form-group">
+    <label>Capacitor Resistance</label>
+    <input type="number" step= "any" class="form-control" placeholder="r1" name="r1" value = '1' autocomplete="on" required> 
+  </div><br>
+  <div class="form-group">
+    <label>Frequency</label>
+    <input type="number" step= "any" class="form-control" placeholder="Fu" name="Fu" value = '5000' autocomplete="on" required> 
+  </div><br>
+  <div class="row"> <!--empty row to add some margin when in mobile view-->
+        <br />
+        </div>
+                <br />
+                
+                 <div class="row">
+            <div class="pull-right">
+                <button id="submitButton" type="submit" class="btn btn-danger form-controlx" aria-hidden="true" data-loading-text="Data Loading...">Submit</button>
+                <a href="http://renewablelab.niu.edu/users/login" class="btn btn-default form-controlx" role="button">Cancel</a>      
+                <input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-default form-controlx" value="Graph">
+            </div>
+        </div> <!--row-->  
+                           
+                            
+              
+         
                                 
-                            </tr>
-                        </table><table>
-                           <tr>
-
-                               <td>Output Voltage</td>
-
-                               <td><div id="Vo">0</div></td>
-
-                           </tr>
-
-
-
-
-                           <tr>
-
-                               <td>Output Current</td>
-
-                               <td><div id="Io">0</div></td>
-
-                           </tr>
-
-                           <tr>
-
-                               <td>Power</td>
-
-                               <td><div id="P">0</div></td>
-
-                           </tr>
-
-                           <tr>
-
-                               <td>deltaIL</td>
-
-                               <td><div id="deltaIL">0</div></td>
-
-                           </tr>
-
-                           
-
-                           
-
-                                   </table><div id="graphresult"> </div>
+                   <div class="row"> <!--empty row to add some margin when in mobile view-->
+        <br />
+        </div>   
+              
+                      
+                        {{#if outputobj}}
+                        
+                          <div class="form-group">
+    <label>Output Voltage</label>
+    <output name = "Vo"> {{Vo}} </output>
+    
+  </div><br>
+  
+        <div class="form-group">
+    <label>Output Current</label>
+    <output name = "Io"> {{Io}} </output>
+    
+  </div><br>
+   <div class="form-group">
+    <label>deltaIL</label>
+    <output name = "deltaIL"> {{deltaIL}} </output>
+    
+  </div><br>
+   <div class="form-group">
+    <label>Power</label>
+    <output name = "P"> {{P}} </output>
+    
+  </div><br>
+  
+                        {{/if}}
+                                   
+                                   <div id="graphresult"> </div>
                         </form>
 
                         <div id="result"> </div>
                         
 
                           
-                                   <div id="graphData"></div> 
+                                   <div id="graphData">
+                                   	<script src="js/script.js" ></script>
+                                   </div> 
 
 
                        <p id="cid"> </p>
@@ -247,7 +252,7 @@ Co-PI:, Andrew W. Otieno, Ph.D.<br />
 <a href="mailto:otieno@niu.edu">otieno@niu.edu</a>
 </div>
 <p><small>The project is funded by the <a href="https://www.nsf.gov/" target="_blank">National Science Foundation</a> (NSF) Improving Undergraduate STEM Education program (DUE-1712146) from June 2017 to May 2020.</small></p>
-<a href="https://www.nsf.gov/"  target="_blank"><img src="_images/nsf-logo.jpg" alt="National Science Foundation logo" class="img-responsive" ></a>
+<a href="https://www.nsf.gov/"  target="_blank"><img src="/_images/nsf-logo.jpg" alt="National Science Foundation logo" class="img-responsive" ></a>
 	</div>
 
 

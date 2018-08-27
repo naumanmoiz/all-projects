@@ -15,7 +15,12 @@
 <link href="https://niu.edu/masterto/includes/MyFontsWebfontsOrderM3016798.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Sanchez:400,400italic" rel="stylesheet" type="text/css" />
 <link href="https://niu.edu/masterto/themes/Theme_1_0/css/theme_images/favicon.ico" rel="shortcut icon" />
- <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://niu.edu/masterto/themes/Theme_1_0/js/facebook-pixel.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.6/lib/draggable.bundle.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="js/home.js"></script>
+<script type="text/javascript" src="js/cktsim.js"></script>
+<script type="text/javascript" src="js/schematic.js"></script>
 <script>
 	<!--Google Analytics Script-->
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -35,6 +40,7 @@
 
 <!-- Font Awesome Script -->
 	<script src="https://use.fontawesome.com/dcfc86ee58.js"></script>
+
 	<link href="https://use.fontawesome.com/dcfc86ee58.css" media="all" rel="stylesheet">
 </head>
 <body>
@@ -173,16 +179,16 @@
 </div>
 <div class="collapse navbar-collapse main" id="collapse">
 <ul class="nav navbar-nav main">
-	<li class="active" id="home"><a href="/" target="_parent"><i class="fa fa-home" aria-hidden="true"></i> </a> </li>
+	<li class="active" id="home"><a href="index.shtml" target="_parent"><i class="fa fa-home" aria-hidden="true"></i> </a> </li>
 	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" target="_parent">Learn <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 		<div class="dropdown-menu">
 		   <div class="row">
 				 <div class="col-md-12">
 						<ul class="megamenu-list">
-							<li><a href="http://renewablelab.niu.edu/PowerElectronics/index.html" target="new">Power Electronics</a></li>
-							<li><a href="http://renewablelab.niu.edu/SoloarPower/index.html" target="new">Solar Power</a></li>
-							<li><a href="http://renewablelab.niu.edu/WindPower/index.html" target="new">Wind Power</a></li>
-							<li><a href="http://renewablelab.niu.edu/DCDCConverters/index.html" target="new">DC Converters</a></li>
+							<li><a href="PowerElectronics/index.html" target="new">Power Electronics</a></li>
+							<li><a href="SoloarPower/index.html" target="new">Solar Power</a></li>
+							<li><a href="WindPower/index.html" target="new">Wind Power</a></li>
+							<li><a href="DCDCConverters/index.html" target="new">DC Converters</a></li>
 						</ul>
 				</div>
 		   </div>
@@ -193,15 +199,16 @@
 		   <div class="row">
 				 <div class="col-md-12">
 						<ul class="megamenu-list">
-							<li><a href="http://renewablelab.niu.edu/users/buckConverter" target="_parent">Buck Converter</a></li>
-							<li><a href="/users/solar" target="_parent">Solar Panel</a></li>
+							<li><a href="BC1.html" target="_parent">Buck Converter</a></li>
+							<li><a href="#" target="_parent">Experiment Module 2</a></li>
 							<li><a href="#" target="_parent">Experiment Module 3</a></li>
 						</ul>
 				</div>
 		   </div>
 		</div>
 	</li>
-<li class="active"><a href="http://renewablelab.niu.edu/users/gallery" target="_parent">Gallery</a></li>
+<li class="active"><a href="gallery.shtml" target="_parent">Gallery</a></li>
+<li class="active"><a href="login.shtml" target="_parent">Login</a></li>
 <li class="active"><a href="http://www.niutoday.info/2017/10/05/new-grant-to-fund-virtual-renewable-energy-laboratory/?utm_campaign=lab%20grant&utm_medium=Email&utm_source=NIU%20Today" target="new">Updates</a> </li>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" target="_parent">People <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 		<div class="dropdown-menu">
@@ -210,76 +217,256 @@
 						<ul class="megamenu-list">
 							<li><a href="https://niu.edu/ceet/about/faculty-and-instructors/guo-liping.shtml" target="new"> Dr. Liping Guo </a></li>
 							<li><a href="https://niu.edu/ceet/about/faculty-and-instructors/otieno-andrew.shtml" target="new"> Dr. Andrew W. Otieno </a></li>
-							<li><a href="http://renewablelab.niu.edu/users/about" target="_parent">Graduate Students</a></li>
+							<li><a href="about.shtml" target="_parent">Graduate Students</a></li>
 						</ul>
-				 </div>
+				</div>
 		   </div>
 		</div>
 	</li>
-	<li class="active"><a href="http://renewablelab.niu.edu/users/contact" target="_parent">Contact Us</a></li>
-
-	{{#if user}}
-              
-              <li class = "active" ><a href="/users/logout">Logout</a></li>
-            {{else}}
-             
-              <li class="active"><a href="/users/register">Register</a></li>
-            {{/if}}
+	<li class="active"><a href="contact.shtml" target="_parent">Contact Us</a></li>
+	<li class="active"><a href="login.shtml" target="_parent">Login</a></li>
 </ul>
 </div>
 </nav>
 </div>
 
 
+<div class="row main-content" role="main"><a id="main_content" ></a> <!-- Start Main Content Row -->
+  <ul class="breadcrumb">
+    <li><a href="index.shtml" target="_parent">Home</a></li>
+    <li><a href="lectures.shtml" target="_parent">Experiments</a></li>
+    <li class="active">Solar Panel</li>
+  </ul>
+    <div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+      <h2 align="center">Experiment 2 : Solar Panel</h2>
+          <div class="container-fluid">
+              <h4> Concept </h4>
+                  <p>Photovoltaic (PV) cells are semiconductors which become electrically conductive on exposure to light or heat.</p>
+                  <p> 
+                    <figure class="figure" align="center">
+                      <img alt="Fig1" src="_images\fig1.jpg"/>
+                      <figcaption class="figure-caption"><small>Figure 1: A buck converter on a printed circuit board</small></figcaption>
+                    </figure>
+                  </p>
+                  <p>
+                    Open-circuit voltage
+                    The open circuit voltage is dependent on the irradiance. Figure 2 shows the relationship of open circuit voltage with irradiance. 
+                    The open circuit voltage is a nonlinear function of the irradiance. The voltage approaches its maximum level even at low irradiance. 
+                    That is way solar panels are able to produce substantial voltages even in cloudy weathers.
+                    Short-circuit current
+					Short circuit current is the largest possible current a PV cell can generate. The current is measured by connecting an ammeter with extremely 
+					low internal resistance directly to the PV cell. Note PV cells are short circuit proof. They will not be damaged if the output 
+					terminals are short circuited.                    
+                  </p>
+                  <p>
+                    <figure class="figure" align=center>
+                      <img class="img-responsive" alt="Fig2" src="_images\fig2.jpg"/>
+                      <figcaption class="figure-caption"><small>Figure 2. Schematics of a buck converter</small></figcaption>
+                    </figure>
+                  </p>
+                  <p>
+                    <figure class="figure" align=center>
+                      <img class="img-responsive" alt="Fig3" src="_images\fig3.jpg"/>
+                      <figcaption class="figure-caption"><small>Figure 3. Equivalent circuit when the switch is closed</small></figcaption>
+                    </figure>
+                  </p>
+                  <p>
+                    <figure class="figure" align="center">
+                      <img class="img-responsive" alt="Fig4" src="_images\fig4.jpg"/>
+                      <figcaption class="figure-caption"><small>Figure 4. Equivalent circuit when the switch is open</small></figcaption>
+                    </figure>
+                  </p>
+                  <p>
+                    <figure class="figure" align=center>
+                      <img class="img-responsive" alt="Fig5" src="_images\fig5.jpg"/>
+                    </figure>
+                  </p>
+              <h4> Learning Objective </h4>
+                <p>
+                  <ol>
+                    <li>Measuring open circuit voltage</li>
+                    <li>Measuring short circuit current</li>
+                    <li>Recording solar panel characteristics</li>
+                  </ol>
+                 </p>
+
+              <h4> Materials and Equipment </h4>
+                <p>Solar panel, potentiomer, multi-meter</p>
+
+              <h4>Procedure</h4>
+                <div>
+                  <ol>
+                      <li>Measuring open-circuit voltage
+						Connect a voltmeter directly to the solar panel to measure the open circuit voltage. See Figure 1. 
+						Vary the irradiance from xxx to xxx and record the open-circuit voltage in a graph</li>
+                      <li>Measuring short-circuit current
+                      		Connect an ammeter directly to the solar panel to measure the short circuit current. See Figure 3.</li>
+                      <li>Recording characteristics of a solar panel:	
+                          <o1>
+                            <li>Set the irradiance constant.</li>
+                            <li>Connect a potentiometer to the solar panel.</li>
+                            <li>Vary the potentiometer from 0 to 10 kΩ</li>
+                            <li>Measure the output voltage and current</li>
+                            <li>Record the voltage and current in a graph</li>
+                          </o1>
+                        </li>
+                        <li>From the graph, identify the maximum power point. What is the output voltage and current at the maximum power point?</li>
+                        <li>Calculate the fill factor.</li>
+                    </ol>
+                </div>
+              <!--we're going to use a table to organize the elements on our page-->
+              <div class="container">
+
+                <div class="container-fluid">
+                    <div class="span6">
+                      <div style="display: inline-block">
+
+                         <div class="container"> <img src="_images/resistor.svg" width="200" height="40" alt="Banner" /> </div>
+                         <input type="hidden" class="schematic" name="schematic1" width="400" height="400"/>
+                        <!-- <canvas class="grid">Re</canvas> --> 
+                         <object class="diode" style="height:10px; width:40px"></object>
+                      </div>
+                    </div>
+
+                <div class="span3">
+                  <div style="display: inline-block">
+                      <form action="/" id="elementSubmit" method="POST" style="width: 981px; ">
+                        <table>
+                            <tr>
+                                <td>Voltage input:</td>
+                                <td><input type=text id='Vin' name="Vin" value='0'><br/></td>
+                            </tr>
+                            <tr>
+                                <td>Duty Cycle:</td>
+                                <td><input type=text id='Du' name="Du" value='0'><br/></td>
+                            </tr>
+                            <tr>
+                                <td>Inductance (in henry)</td>
+                                <td><input type=text id='Lu' name="Lu" value='0'><br/></td>
+                            </tr>
+                            <tr>
+                                <td>Capacitance</td>
+                                <td><input type=text id='Cu' name="Cu" value='0'><br/></td>
+                            </tr>
+                            <tr>
+                                <td>Resistance</td>
+                                <td><input type=text id='Ru' name="Ru" value='10'><br/></td>
+                            </tr>
+                            <tr>
+                                <td>Cap Resistance</td>
+                                <td><input type=text id='r1' name="r1" value='1'><br/></td>
+                            </tr>
+                            <tr>
+                                <td>Frequency</td>
+                                <td><input type=text id='Fu' name="Fu" value='50000'><br/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" id="submitButton" class="btn btn-primary" value="Submit"></td>
+                                <td><input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-primary" value="Graph"></td>
+                                
+                            </tr>
+                        </table><table>
+                           <tr>
+
+                               <td>Output Voltage</td>
+
+                               <td><div id="Vo">0</div></td>
+
+                           </tr>
 
 
-<!-- <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            {{#if user}}
-              <li role="presentation"><a href="/">Dashboard</a></li>
-              <li role="presentation"><a href="/users/logout">Logout</a></li>
-            {{else}}
-              <li role="presentation"><a href="http://renewablelab.niu.edu/users/login">Login</a></li>
-              <li role="presentation"><a href="/users/register">Register</a></li>
-            {{/if}}
-          </ul>
-        </nav>
-        <h3 class="text-muted">LoginApp</h3>
-      </div> -->
 
 
-      <div class="row">
-        <div class="col-lg-12">
-          {{#if success_msg}}
-            <div class="alert alert-success">{{success_msg}}</div>
-          {{/if}}
+                           <tr>
 
-          {{#if error_msg}}
-            <div class="alert alert-danger">{{error_msg}}</div>
-          {{/if}}
+                               <td>Output Current</td>
 
-          {{#if error}}
-            <div class="alert alert-danger">{{error}}</div>
-          {{/if}}
-          
-          {{{body}}}
-          
-          
-          
-          
-          
-        </div>
+                               <td><div id="Io">0</div></td>
 
-        
-      </div>
+                           </tr>
 
-      
+                           <tr>
 
-     <!-- </div> /container -->
-    
-    
+                               <td>Power</td>
+
+                               <td><div id="P">0</div></td>
+
+                           </tr>
+
+                           <tr>
+
+                               <td>deltaIL</td>
+
+                               <td><div id="deltaIL">0</div></td>
+
+                           </tr>
+
+                           
+
+                           
+
+                                   </table><div id="graphresult"> </div>
+                        </form>
+
+                        <div id="result"> </div>
+                        
+
+                          
+                                   <div id="graphData"></div> 
+
+
+                       <p id="cid"> </p>
+                </div>
+                </div>
+              </div>
+              </div>
+
+              <h4>Table</h4>
+              <p>Paragraph text 4</p>
+
+              <h4>Questions</h4>
+              <p>Questionare Text 1</p>
+
+
+            </ul>
+          </div>
+   </div>
+
+
+
+<div class="col-sm-3 col-sm-pull-9 leftCol">
+	<div class="panel-body leftnav" ></div>
+<content>
+  <ul class="nav nav-stacked">
+    <li>
+      <a> <strong>Experiments</strong> </a>
+      <ul class="list-group">
+        <li class="list-group-item active"><a href="/BC1">Buck Converter</a></li>
+      </ul>
+    </li>
+  </ul>
+</content>
+  <div class="well contact-us">
+<h3>Contact Us</h3>
+<address>
+<strong>Virtual Renewable Energy Laboratory</strong><br />
+PI:, Liping Guo, Ph.D.<br />
+<a href="tel:815-753-5615">815-753-1350</a><br />
+<a href="mailto:lguo@niu.edu">lguo@niu.edu</a>
+</address>
+	<hr>
+Co-PI:, Andrew W. Otieno, Ph.D.<br />
+<a href="tel:815-753-5615">815-753-1754</a><br />
+<a href="mailto:otieno@niu.edu">otieno@niu.edu</a>
+</div>
+<p><small>The project is funded by the <a href="https://www.nsf.gov/" target="_blank">National Science Foundation</a> (NSF) Improving Undergraduate STEM Education program (DUE-1712146) from June 2017 to May 2020.</small></p>
+<a href="https://www.nsf.gov/"  target="_blank"><img src="_images/nsf-logo.jpg" alt="National Science Foundation logo" class="img-responsive" ></a>
+	</div>
+
+
+</div><!-- /Main Content -->
+
+
 
 <!-- SSI Footer Publish -->
 <footer class="row">
@@ -335,6 +522,3 @@ Board of Trustees of<br /> <a href="https://www.niu.edu/">Northern Illinois Univ
 
 </body>
 </html>
-
-
-
