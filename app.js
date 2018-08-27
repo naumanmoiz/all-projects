@@ -1,4 +1,4 @@
-var express = require("express");
+var express = require('express');
 var net = require('net');
 
 var path = require('path');
@@ -15,17 +15,17 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-
 require('events').EventEmitter.defaultMaxListeners = 3;
 
-mongoose.connect('process.env.MONGODB_URI');
+mongoose.connect(
+	'process.env.MONGODB_URI'
+);
 var db = mongoose.connection;
 
-var app     = express();
+var app = express();
 var client = new net.Socket();
 
-
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -39,59 +39,60 @@ app.use(express.static(__dirname + '/public'));
 
 //View Engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
 app.set('view engine', 'handlebars');
 
-
-
-
 //Express Session
-app.use(session({
-    secret: 'secret',
-    saveUninitialized: true,
-    resave: true
-}));
+app.use(
+	session({
+		secret: 'secret',
+		saveUninitialized: true,
+		resave: true
+	})
+);
 
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+app.use(
+	expressValidator({
+		errorFormatter: function(param, msg, value) {
+			var namespace = param.split('.'),
+				root = namespace.shift(),
+				formParam = root;
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+			while (namespace.length) {
+				formParam += '[' + namespace.shift() + ']';
+			}
+			return {
+				param: formParam,
+				msg: msg,
+				value: value
+			};
+		}
+	})
+);
 
 // Connect Flash
 app.use(flash());
 
 // Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
+app.use(function(req, res, next) {
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	res.locals.error = req.flash('error');
+	res.locals.user = req.user || null;
+	next();
 });
 
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: {}
+	});
 });
 
 /*app.use(function (req, res, next) {
@@ -99,14 +100,8 @@ app.use(function(err, req, res, next) {
 	  next()
 	})*/
 
-
 app.use('/', routes);
 app.use('/users', users);
-
-
-
-
-
 
 /*app.get('/users/buckConverter', function(req, res) {
 	console.log("app.get users/buckConverter");
@@ -114,10 +109,8 @@ app.use('/users', users);
         res.sendFile(__dirname + "/" + "routes/BC1.html");
     });*/
 
-
-
-app.post('/BC2', function(req, res){
-/*        req_input = {
+app.post('/BC2', function(req, res) {
+	/*        req_input = {
              Vin : req.body.Vin,
               Du : req.body.Du,
               Lu : req.body.Lu,
@@ -133,34 +126,36 @@ app.post('/BC2', function(req, res){
         console.log(req_input);
         console.log("Hi i am here");*/
 
-        //convert the response in JSON format
-      //  res.sendFile(__dirname + "/" + "routes/BC1.html");
-        //res.sendfile(JSON.stringify(response));
-        client.connect(9601, '127.0.0.1', function() {
-        	console.log('Connected');
-        	client.write(JSON.stringify(req_input));
-        });
+	//convert the response in JSON format
+	//  res.sendFile(__dirname + "/" + "routes/BC1.html");
+	//res.sendfile(JSON.stringify(response));
+	client.connect(
+		9601,
+		'127.0.0.1',
+		function() {
+			console.log('Connected');
+			client.write(JSON.stringify(req_input));
+		}
+	);
 
-        // client.on('data', function(data) {
-        // 	console.log('Received: ' + data);
-        //   outputobj = JSON.parse(data);
-        //   console.log("Vo : " + outputobj.Vo);
-        //   console.log("Io : " + outputobj.Io);
-        //   console.log("P  : " + outputobj.P);
-        //   console.log("dIL: " + outputobj.deltaIL);
-        //   console.log(typeof(outputobj.deltaIL));
-        //   res.end(JSON.stringify(outputobj));
-        // 	client.destroy(); // kill client after server's response
-        // });
+	// client.on('data', function(data) {
+	// 	console.log('Received: ' + data);
+	//   outputobj = JSON.parse(data);
+	//   console.log("Vo : " + outputobj.Vo);
+	//   console.log("Io : " + outputobj.Io);
+	//   console.log("P  : " + outputobj.P);
+	//   console.log("dIL: " + outputobj.deltaIL);
+	//   console.log(typeof(outputobj.deltaIL));
+	//   res.end(JSON.stringify(outputobj));
+	// 	client.destroy(); // kill client after server's response
+	// });
 
-      //  res.end(JSON.stringify(data));
+	//  res.end(JSON.stringify(data));
 
-        client.on('close', function() {
-        	console.log('Connection closed');
-        });
-
+	client.on('close', function() {
+		console.log('Connection closed');
+	});
 });
-
 
 /*
 function Juice() {
@@ -172,19 +167,15 @@ console.log('Connected');
 }
 */
 
-
-app.get('/',function(req,res){
+app.get('/', function(req, res) {
 	console.log('got into get function which is dir + index.shtml');
-  res.sendFile(__dirname + '/routes/index.shtml');
-  //It will find and locate index.html from View or Scripts
+	res.sendFile(__dirname + '/routes/index.shtml');
+	//It will find and locate index.html from View or Scripts
 });
 
-
-
 //Set Port
-app.set('port', (process.env.PORT || 80));
+app.set('port', process.env.PORT || 80);
 
-app.listen(app.get('port'), function(err,next){
-
-	console.log('Server started on port '+app.get('port'));
+app.listen(app.get('port'), function(err, next) {
+	console.log('Server started on port ' + app.get('port'));
 });
