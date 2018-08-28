@@ -130,7 +130,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><input type="button" id="submitButton" class="btn btn-primary" value="Submit"></td>
+                    <td><button id="submitButton" type="submit" class="btn btn-danger form-controlx" aria-hidden="true" data-loading-text="Data Loading...">Submit</button></td>
                     <td><input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-primary"
                         value="Graph"></td>
 
@@ -138,7 +138,6 @@
                 </table>
                 <table>
                   <tr>
-                    {{#if outputobj}}
                     <td>Output Voltage</td>
 
                     <td>
