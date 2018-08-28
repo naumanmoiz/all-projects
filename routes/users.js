@@ -68,6 +68,11 @@ router.get('/solar', function(req, res) {
 	res.render('solar');
 });
 
+router.get('/boost', function(req, res) {
+	console.log('got into boost get function users.js');
+	res.render('boostConverter');
+});
+
 router.get('/about', function(req, res) {
 	console.log('got into about get function users.js');
 	res.render('about');
@@ -345,6 +350,86 @@ router.post('/solarPanel', function(req, res) {
 		console.log('handled error');
 		console.log(ex);
 	});
+
+	client.on('close', function() {
+		console.log('Connection closed');
+	});
+});
+
+router.post('/boostConverter', function(req, res) {
+	console.log('router post users/boostConverter');
+	req_input = {
+		Vin: req.body.Vin,
+		Du: req.body.Du,
+		Lu: req.body.Lu,
+		Cu: req.body.Cu,
+		Ru: req.body.Ru,
+		r1: req.body.r1,
+		Fu: req.body.Fu
+	};
+
+	//this line is optional and will print the response on the command prompt
+	//It's useful so that we know what infomration is being transferred
+	//using the server
+	console.log(req_input);
+
+	//convert the response in JSON format
+	//  res.sendFile(__dirname + "/" + "routes/BC1.html");
+	//res.sendfile(JSON.stringify(response));
+	client.connect(
+		8901,
+		'127.0.0.1',
+		function() {
+			console.log('Connected');
+			client.write(JSON.stringify(req_input));
+		}
+	);
+
+	client.on('data', function(data) {
+		//console.log('Received :' + data);
+		//console.log(data +"before parse");
+		outputobj = JSON.parse(data);
+
+		console.log('Vo : ' + outputobj['input cluster'].Vo);
+		var Vo = outputobj['input cluster'].Vo;
+		var Io = outputobj['input cluster'].Io;
+		var P = outputobj['input cluster'].P;
+		var deltaIL = outputobj['input cluster'].deltaIL;
+		var Time = outputobj.Time;
+		var outputData = outputobj['Outputs Data'];
+		console.log('Io : ' + outputobj['input cluster'].Io);
+		console.log('P  : ' + outputobj['input cluster'].P);
+		console.log('dIL: ' + outputobj['input cluster'].deltaIL);
+		console.log('time' + outputobj.Time);
+		console.log('Outputs Data' + outputobj['Outputs Data']);
+
+		for (var i in outputobj) {
+			console.log('objects are');
+			console.log(i);
+		}
+		//  res.render('graphvalues',data);
+
+		// req.flash(JSON.stringify(outputobj));
+		//   res.end(JSON.stringify(outputobj));
+		//res.redirect('/');
+		// var context = JSON.stringify(outputobj);
+		res.render('buckConverter', {
+			outputobj: outputobj,
+			Vo: Vo,
+			Io: Io,
+			P: P,
+			deltaIL: deltaIL
+		});
+
+		client.destroy(); // kill client after server's response
+	});
+
+	client.on('error', function(ex) {
+		console.log('handled error');
+		console.log(ex);
+	});
+
+	//  res.end(JSON.stringify(data));
 
 	client.on('close', function() {
 		console.log('Connection closed');

@@ -1,0 +1,268 @@
+<div class="row main-content" role="main">
+    <a id="main_content"></a> <!-- Start Main Content Row -->
+    <ul class="breadcrumb">
+        <li><a href="index.shtml" target="_parent">Home</a></li>
+        <li><a href="lectures.shtml" target="_parent">Experiments</a></li>
+        <li class="active">Boost Converter</li>
+    </ul>
+    <div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+        <h2 align="center">Experiment 3 : Boost Converter</h2>
+        <div class="container-fluid">
+            <h4> Concept </h4>
+            <p>DC-DC Converters are power electronics circuits that convert a dc input voltage to a different dc output voltage
+                level.
+            </p>
+            <p>
+                <figure class="figure" align="center">
+                    <img alt="Fig1" src="/_images/fig1.jpg" />
+                    <figcaption class="figure-caption"><small>Figure 1: A buck converter on a printed circuit board</small></figcaption>
+                </figure>
+
+
+                Advantages of dc-dc converters are:
+                <ul>
+                    <li>High efficiency.</li>
+                    <li>Smaller components and less thermal management.</li>
+                    <li>Output voltage can be either higher or lower than the input voltage.</li>
+                </ul>
+            </p>
+            <p>
+                A buck converter’s output voltage is always lower than the input voltage. Figure 2 shows the schematics of a buck converter.
+                It has a dc input voltage, a transistor working as a switch, an inductor and a capacitor forming a low pass
+                filter to smooth out the output voltage, and a load resistor. The diode provides a path for the inductor
+                current when the switch is opened and is reverse biased when the switch is closed.
+            </p>
+            <p>
+                <figure class="figure" align=center>
+                    <img class="img-responsive" alt="Fig2" src="/_images/fig2.jpg" />
+                    <figcaption class="figure-caption"><small>Figure 2. Schematics of a buck converter</small></figcaption>
+                </figure>
+            </p>
+            <p>When the switch is closed, the diode is reverse biased. The equivalent circuit is shown in Figure 3.</p>
+            <p>
+                <figure class="figure" align=center>
+                    <img class="img-responsive" alt="Fig3" src="/_images/fig3.jpg" />
+                    <figcaption class="figure-caption"><small>Figure 3. Equivalent circuit when the switch is closed</small></figcaption>
+                </figure>
+            </p>
+            <p>When the switch is open, the diode is forward biased. The equivalent circuit is shown in Figure 4.</p>
+            <p>
+                <figure class="figure" align="center">
+                    <img class="img-responsive" alt="Fig4" src="/_images/fig4.jpg" />
+                    <figcaption class="figure-caption"><small>Figure 4. Equivalent circuit when the switch is open</small></figcaption>
+                </figure>
+            </p>
+            <p>Output voltage of a buck converter is controlled by a pulse width modulated (PWM) signal. By adjusting the
+                duty cycle, we can obtain desired output voltage.</p>
+            <p>
+                <figure class="figure" align=center>
+                    <img class="img-responsive" alt="Fig5" src="/_images/fig5.jpg" />
+                </figure>
+            </p>
+            <h4> Learning Objective </h4>
+            <p>
+                <ol>
+                    <li>Characteristics of buck converter</li>
+                    <li>Capacitor and inductor selection</li>
+                    <li>Output voltage and current</li>
+                    <li>Continuous and discontinuous mode</li>
+                </ol>
+            </p>
+
+            <h4> Materials and Equipment </h4>
+            <p>Power supply, capacitor, inductor, transistor, diode, resistor</p>
+
+            <h4>Procedure</h4>
+            <div>
+                <ol>
+                    <li>Make connections of power supply, capacitor, inductor, transistor and load resistor to build the
+                        buck converter.<br/> Vin = 50 V, L = 400 μH, C = 100 μF, f = 20 kHz, R = 20 Ω
+                    </li>
+                    <li>Check the circuit connections according to the schematics.</li>
+                    <li>Varying duty cycle
+                        <o1>
+                            <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                            <li>Observe and measure the output voltage.</li>
+                            <li>Vary the duty cycle from 20% to 80% with the interval of 10%.</li>
+                            <li>Measure the output voltage for each of the duty cycle. Compare the measurement with theoretical
+                                calculation.</li>
+                        </o1>
+                    </li>
+                    <li>Varying switching frequency
+                        <ol>
+                            <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                            <li>Observe and measure the output voltage ripple. Compare the measurement with theoretical calculation.</li>
+                            <li>Increase the switching frequency to 50 kHz. Observe and measure the output voltage ripple.
+                                Compare the measurement with theoretical calculation.</li>
+                            <li>Decrease the switching frequency to 10 kHz. Observe and measure the output voltage ripple.
+                                Compare the measurement with theoretical calculation.</li>
+                        </ol>
+                    </li>
+                    <li>Varying load resistor
+                        <ol>
+                            <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                            <li>Measure the load current and output voltage when the load resistance is 20 Ω.</li>
+                            <li>Measure the load current and output voltage when the load resistance is 40 Ω.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <!--we're going to use a table to organize the elements on our page-->
+            <div class="container">
+
+                <div class="container-fluid">
+                    <div class="span6">
+                        <div style="display: inline-block">
+
+                            <div class="container"> <img src="/_images/resistor.svg" width="200" height="40" alt="Banner"
+                                /> </div>
+                            <input type="hidden" class="schematic" name="schematic1" width="400" height="400" />
+                            <!-- <canvas class="grid">Re</canvas> -->
+                            <object class="diode" style="height:10px; width:40px"></object>
+                        </div>
+                    </div>
+
+                    <div class="span3">
+                        <div style="display: inline-block">
+                            <form action="/users/buckConverter" class="row" role="form" id="elementSubmit" method="POST">
+
+                                <div class="form-group">
+                                    <label>Voltage input</label>
+                                    <input type="number" step="any" class="form-control" placeholder="Vin" name="Vin" autocomplete="on" required>
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Duty Cycle</label>
+                                    <input type="number" step="any" class="form-control" placeholder="Du" name="Du" autocomplete="on" required>
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Inductance (in henry)</label>
+                                    <input type="number" step="any" class="form-control" placeholder="Lu" name="Lu" autocomplete="on" required>
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Capacitance</label>
+                                    <input type="number" step="any" class="form-control" placeholder="Cu" name="Cu" autocomplete="on" required>
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Resistance</label>
+                                    <input type="number" step="any" class="form-control" placeholder="Ru" name="Ru" value='10' autocomplete="on" required>
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Capacitor Resistance</label>
+                                    <input type="number" step="any" class="form-control" placeholder="r1" name="r1" value='1' autocomplete="on" required>
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Frequency</label>
+                                    <input type="number" step="any" class="form-control" placeholder="Fu" name="Fu" value='5000' autocomplete="on" required>
+                                </div><br>
+                                <div class="row">
+                                    <!--empty row to add some margin when in mobile view-->
+                                    <br />
+                                </div>
+                                <br />
+
+                                <div class="row">
+                                    <div class="pull-right">
+                                        <button id="submitButton" type="submit" class="btn btn-danger form-controlx" aria-hidden="true" data-loading-text="Data Loading...">Submit</button>
+                                        <a href="http://renewablelab.niu.edu/users/login" class="btn btn-default form-controlx" role="button">Cancel</a>
+                                        <input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-default form-controlx"
+                                            value="Graph">
+                                    </div>
+                                </div>
+                                <!--row-->
+
+
+
+
+
+                                <div class="row">
+                                    <!--empty row to add some margin when in mobile view-->
+                                    <br />
+                                </div>
+
+
+                                {{#if outputobj}}
+
+                                <div class="form-group">
+                                    <label>Output Voltage</label>
+                                    <output name="Vo"> {{Vo}} </output>
+
+                                </div><br>
+
+                                <div class="form-group">
+                                    <label>Output Current</label>
+                                    <output name="Io"> {{Io}} </output>
+
+                                </div><br>
+                                <div class="form-group">
+                                    <label>deltaIL</label>
+                                    <output name="deltaIL"> {{deltaIL}} </output>
+
+                                </div><br>
+                                <div class="form-group">
+                                    <label>Power</label>
+                                    <output name="P"> {{P}} </output>
+
+                                </div><br> {{/if}}
+
+                                <div id="graphresult"> </div>
+                            </form>
+
+                            <div id="result"> </div>
+
+
+
+                            <div id="graphData">
+                                <script src="js/script.js"></script>
+                            </div>
+
+
+                            <p id="cid"> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Table</h4>
+            <p>Paragraph text 4</p>
+
+            <h4>Questions</h4>
+            <p>Questionare Text 1</p>
+
+
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="col-sm-3 col-sm-pull-9 leftCol">
+        <div class="panel-body leftnav"></div>
+        <content>
+            <ul class="nav nav-stacked">
+                <li>
+                    <a> <strong>Experiments</strong> </a>
+                    <ul class="list-group">
+                        <li class="list-group-item active"><a href="/BC1">Buck Converter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </content>
+        <div class="well contact-us">
+            <h3>Contact Us</h3>
+            <address>
+                <strong>Virtual Renewable Energy Laboratory</strong><br /> PI:, Liping Guo, Ph.D.<br />
+                <a href="tel:815-753-5615">815-753-1350</a><br />
+                <a href="mailto:lguo@niu.edu">lguo@niu.edu</a>
+            </address>
+            <hr> Co-PI:, Andrew W. Otieno, Ph.D.<br />
+            <a href="tel:815-753-5615">815-753-1754</a><br />
+            <a href="mailto:otieno@niu.edu">otieno@niu.edu</a>
+        </div>
+        <p><small>The project is funded by the <a href="https://www.nsf.gov/" target="_blank">National Science Foundation</a>
+                (NSF) Improving Undergraduate STEM Education program (DUE-1712146) from June 2017 to May 2020.</small></p>
+        <a href="https://www.nsf.gov/" target="_blank"><img src="/_images/nsf-logo.jpg" alt="National Science Foundation logo"
+                class="img-responsive"></a>
+    </div>
+
+
+</div><!-- /Main Content -->
