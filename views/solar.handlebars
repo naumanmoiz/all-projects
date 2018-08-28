@@ -97,7 +97,7 @@
 
           <div class="span3">
             <div style="display: inline-block">
-              <form action="/users/solarPanel" id="elementSubmit" method="POST" style="width: 981px; ">
+              <form action="/users/solarPanel" class="row" id="elementSubmit" method="POST" style="width: 981px; ">
                 <table>
                   <tr>
                     <td>Rs:</td>
@@ -130,15 +130,16 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><input type="button" id="submitButton" class="btn btn-primary" value="Submit"></td>
-                    <td><input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-primary"
-                        value="Graph"></td>
-
+                    <td><button id="submitButton" type="submit" class="btn btn-danger form-controlx" aria-hidden="true" data-loading-text="Data Loading...">Submit</button></td>
+                    <td> <input type="button" id="submitGraph" onclick="google.charts.setOnLoadCallback(drawChart)" class="btn btn-default form-controlx"
+                      value="Graph"></td>
                   </tr>
                 </table>
+                </form>
+                
                 <table>
                   <tr>
-                    {{#if outputobj}}
+                    
                     <td>Output Voltage</td>
 
                     <td>
