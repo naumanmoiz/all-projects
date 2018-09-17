@@ -1,0 +1,76 @@
+<br>
+<!-- Start Main Content -->
+<div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+	<contenttext>
+		<h2 style="margin-top:10px;">Practical Experiment 1 : Buck Converter</h2>
+		<br>
+		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckconverter">
+			<div class="form-group">
+				<label for="voltageInputBuck" class="col-sm-2 control-label">Voltage Input</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="400000" class="form-control" id="voltageInputBuck" name="voltageInputBuck"
+					 placeholder="Voltage Input">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="dutyCycleBuck" class="col-sm-2 control-label">Duty Cycle</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="1" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck" placeholder="Duty Cycle">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inductanceBuck" class="col-sm-2 control-label">Inductance</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="1" step="0.1" class="form-control" id="inductanceBuck" name="inductanceBuck"
+					 placeholder="Inductance (in Henry)">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="capacitanceBuck" class="col-sm-2 control-label">Capacitance</label>
+				<div class="col-sm-10">
+					<input type="number" min="0.0001" max="0.0009" class="form-control" id="capacitanceBuck" name="capacitanceBuck"
+					 placeholder="Capacitance">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="resistanceBuck" class="col-sm-2 control-label">Resistance</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="40000000" class="form-control" id="resistanceBuck" name="resistanceBuck"
+					 placeholder="Resistance">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="frequencyBuck" class="col-sm-2 control-label">Frequency</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="40000000" class="form-control" id="frequencyBuck" name="frequencyBuck"
+					 placeholder="Frequency">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</form>
+	</contenttext>
+</div>
+<!-- End Main Content -->
+
+<!-- Left bar div opening tag -->
+<div class="col-sm-3 col-sm-pull-9 leftCol">
+	<!-- Start Left Navigaton -->
+	<div class="panel-body leftnav">
+		<content>
+			<ul class="nav nav-stacked">
+				<li class="active"><a href="#"><strong>Practical Experiments</strong></a>
+					<ul class="list-group">
+						<li class="list-group-item"><a href="users/index">Home</a></li>
+						<li class="list-group-item"><a href="#">Buck Converter</a></li>
+						<li class="list-group-item"><a href="users/practicalexperiments/solarPanel">Solar Panel</a></li>
+						<li class="list-group-item"><a href="users/practicalexperiments/boostconverter">Boost Converter</a></li>
+					</ul>
+				</li>
+			</ul>
+		</content>
+	</div>
+	<!-- End Left Navigation -->

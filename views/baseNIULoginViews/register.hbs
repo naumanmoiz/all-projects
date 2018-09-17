@@ -1,0 +1,86 @@
+<!-- Start Breadcrumb -->
+<ul class="breadcrumb">
+	<li><a href="/" target="_parent">Home</a></li>
+	<li class="active">Register</li>
+</ul>
+<!-- End Breadcrumb -->
+<br>
+<!-- Start Main Content -->
+<div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+	<contenttext>
+
+		<h2 style="margin-top:10px;">Register</h2>
+		<br>
+
+		<!-- Start Success Message (In case of user created) -->
+		{{#if successMessage}}
+		<div class="alert alert-success" role="alert">
+			<strong>Success!</strong> You are successfully registered.
+		</div>
+		{{/if}}
+		<!-- End Success Message -->
+
+		<!-- Start Fail Message (In case of user has email address repeating) -->
+		{{#if failureMessage}}
+		<div class="alert alert-danger" role="alert">
+			<strong>Error!</strong> The email address entered has already been registered.
+		</div>
+		{{/if}}
+
+		<!-- Start Register Form -->
+		<form role="form" method="POST" action="/users/register">
+			<div class="form-group">
+				<label for="userRegisterEmailAddress">Email address</label>
+				<input type="email" class="form-control" id="userRegisterEmailAddress" name="userRegisterEmailAddress" placeholder="Enter Email"
+				 required="true">
+			</div>
+			<div class="form-group">
+				<label for="userRegisterPasword">Password</label>
+				<input type="password" class="form-control" id="userRegisterPassword" name="userRegisterPassword" placeholder="Password"
+				 required="true">
+			</div>
+			<div class="form-group">
+				<label for="userRegisterFirstName">First name</label>
+				<input type="name" class="form-control" id="userRegisterFirstName" name="userRegisterFirstName" placeholder="First name"
+				 required="true">
+			</div>
+			<div class="form-group">
+				<label for="userRegisterLastName">Last name</label>
+				<input type="name" class="form-control" id="userRegisterLastName" name="userRegisterLastName" placeholder="Last name"
+				 required="true">
+			</div>
+			<div class="form-group">
+				<label for="userRegisterEducation">Education</label>
+				<select class="form-control" id="userRegisterEducation" name="userRegisterEducation" required="true">
+					<option value="Middle School">Middle School</option>
+					<option value="High School">High School</option>
+					<option value="Undergrad">Undergrad</option>
+					<option value="Graduate">Graduate</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="userRegisterSecurityQuestion">Security question</label>
+				<select class="form-control" required="true">
+					<option>What was the name of your elementary / primary school?</option>
+					<option>What is the last name of your favorite teacher?</option>
+					<option>What was your childhood nickname?</option>
+					<option>What was your favorite food as a child?</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="userRegisterSecurityAnswer">Security answer</label>
+				<input type="name" class="form-control" id="userRegisterSecurityAnswer" name="userRegisterSecurityAnswer"
+				 placeholder="Answer to the Security Question" required="true">
+			</div>
+			<button type="submit" class="btn btn-primary">Register</button>
+		</form>
+		<!-- End Register Form -->
+
+		<br>
+
+	</contenttext>
+</div>
+<!-- End Main Content -->
+
+<!-- Left bar div opening tag -->
+<div class="col-sm-3 col-sm-pull-9 leftCol">

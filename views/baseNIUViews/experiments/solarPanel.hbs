@@ -1,0 +1,169 @@
+<!-- Start Breadcrumb -->
+<ul class="breadcrumb">
+    <li><a href="/" target="_parent">Home</a></li>
+    <li class="active">Solar Panel</li>
+</ul>
+<!-- End Breadcrumb -->
+<br>
+<!-- Start Main Content -->
+<div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+    <contenttext>
+        <h2 style="margin-top:10px;">Experiment 2 : Solar Panel</h2>
+        <br>
+        <strong>Concept</strong>
+        <p>
+            Photovoltaic (PV) cells are semiconductors which become electrically conductive on exposure to light or heat.
+        </p>
+        <center>
+            <img alt="banner-buckConverter" class="img-responsive" id="headerMainImage" src="images/experiments/buckConverter/banner.jpg">
+            <p>Figure 1: A buck converter on a printed circuit board</p>
+        </center>
+
+        <!-- Start drop-down Advantages DC-DC -->
+        <p>
+            <a class="collapsed" data-toggle="collapse" href="#advantages-dcdc">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                Advantages of DC-DC Converter
+            </a>
+        </p>
+        <div class="collapse" id="advantages-dcdc" style="height: 0px;">
+            <ul>
+                <li>High efficiency.</li>
+                <li>Smaller components and less thermal management.</li>
+                <li>Output voltage can be either higher or lower than the input voltage.</li>
+            </ul>
+        </div>
+        <!-- End drop-down Advantages DC-DC -->
+
+        <!-- Start drop-down Theory -->
+        <p>
+            <a class="collapsed" data-toggle="collapse" href="#theory">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                Theory
+            </a>
+        </p>
+        <div class="collapse" id="theory" style="height: 0px;">
+            <p align="justify">
+                A buck converter’s output voltage is always lower than the input voltage. Figure 2 shows the schematics of a buck converter.
+                It has a dc input voltage, a transistor working as a switch, an inductor and a capacitor forming a low pass
+                filter to smooth out the output voltage, and a load resistor. The diode provides a path for the inductor
+                current when the switch is opened and is reverse biased when the switch is closed.
+            </p>
+            <center>
+                <img alt="schematics-buckConverter" class="img-responsive" src="images/experiments/buckConverter/fig2.jpg">
+                <p>Figure 2. Schematics of a buck converter</p>
+            </center>
+            <p>When the switch is closed, the diode is reverse biased. The equivalent circuit is shown in Figure 3.</p>
+            <center>
+                <img alt="equivalentClosed-buckConverter" class="img-responsive" src="images/experiments/buckConverter/fig3.jpg">
+                <p>Figure 3. Equivalent circuit when the switch is closed</p>
+            </center>
+            <p>When the switch is open, the diode is forward biased. The equivalent circuit is shown in Figure 4.</p>
+            <center>
+                <img alt="equivalentOpen-buckConverter" class="img-responsive" src="images/experiments/buckConverter/fig4.jpg">
+                <p>Figure 4. Equivalent circuit when the switch is open</p>
+            </center>
+            <p>Output voltage of a buck converter is controlled by a pulse width modulated (PWM) signal. By adjusting the
+                duty cycle, we can obtain desired output voltage.</p>
+            <center>
+                <img alt="fig5-buckConverter" class="img-responsive" src="images/experiments/buckConverter/fig5.jpg">
+            </center>
+        </div>
+        <!-- End drop-down Theory -->
+
+        <!-- Start drop-down Learning Objective -->
+        <p>
+            <a class="collapsed" data-toggle="collapse" href="#learning-objectives">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                Learning Objective
+            </a>
+        </p>
+        <div class="collapse" id="learning-objectives" style="height: 0px;">
+            <ol>
+                <li>Characteristics of buck converter</li>
+                <li>Capacitor and inductor selection</li>
+                <li>Output voltage and current</li>
+                <li>Continuous and discontinuous mode</li>
+            </ol>
+        </div>
+        <!-- End drop-down Learning Objective -->
+
+        <!-- Start drop-down Materials and Equipment -->
+        <p>
+            <a class="collapsed" data-toggle="collapse" href="#materials-equipment">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                Materials and Equipment
+            </a>
+        </p>
+        <div class="collapse" id="materials-equipment" style="height: 0px;">
+            <ul>
+                <li>Power Supply</li>
+                <li>Capacitor</li>
+                <li>Inductor</li>
+                <li>Transistor</li>
+                <li>Diode</li>
+                <li>Resistor</li>
+            </ul>
+        </div>
+        <!-- End drop-down Materials and Equipment -->
+
+        <!-- Start drop-down Procedure -->
+        <p>
+            <a class="collapsed" data-toggle="collapse" href="#procedure">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                Procedure
+            </a>
+        </p>
+        <div class="collapse" id="procedure" style="height: 0px;">
+            <ol>
+                <li>
+                    Make connections of power supply, capacitor, inductor, transistor and load resistor to build the buck converter.
+                    <br>Vin = 50 V, L = 400 μH, C = 100 μF, f = 20 kHz, R = 20 Ω
+                </li>
+                <li>Check the circuit connections according to the schematics.</li>
+                <li>Varying duty cycle</li>
+                <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                <li>Observe and measure the output voltage.</li>
+                <li>Vary the duty cycle from 20% to 80% with the interval of 10%.</li>
+                <li>Measure the output voltage for each of the duty cycle. Compare the measurement with theoretical calculation.</li>
+                <li>Varying switching frequency
+                    <ol type="I">
+                        <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                        <li>Observe and measure the output voltage ripple. Compare the measurement with theoretical calculation.</li>
+                        <li>Increase the switching frequency to 50 kHz. Observe and measure the output voltage ripple. Compare
+                            the measurement with theoretical calculation.</li>
+                        <li>Decrease the switching frequency to 10 kHz. Observe and measure the output voltage ripple. Compare
+                            the measurement with theoretical calculation.</li>
+                    </ol>
+                </li>
+                <li>Varying load resistor
+                    <ol type="I">
+                        <li>Set the duty cycle at 40%, and switching frequency at 20 kHz.</li>
+                        <li>Measure the load current and output voltage when the load resistance is 20 Ω.</li>
+                        <li>Measure the load current and output voltage when the load resistance is 40 Ω.</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+        <!-- End drop-down Procedure -->
+    </contenttext>
+</div>
+<!-- End Main Content -->
+
+<!-- Left bar div opening tag -->
+<div class="col-sm-3 col-sm-pull-9 leftCol">
+    <!-- Start Left Navigaton -->
+    <div class="panel-body leftnav">
+        <content>
+            <ul class="nav nav-stacked">
+                <li class="active"><a href="#"><strong>Experiments</strong></a>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="/buckConverter">Buck Converter</a></li>
+                        <li class="list-group-item"><a href="#">Solar Panel</a></li>
+                        <li class="list-group-item"><a href="/boostConverter">Boost Converter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </content>
+    </div>
+    <!-- End Left Navigation -->

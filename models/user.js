@@ -1,46 +1,174 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
+const validator = require('validator');
+const jwt = require('jsonwebtoken');
+const _ = require('lodash');
+const bcrypt = require('bcryptjs');
 
-// User Schema
-var UserSchema = mongoose.Schema({
-	username: {
+/* Starting up the database */
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/RenewableLab');
+
+/* Creating a User Schema */
+var UserSchema = new mongoose.Schema({
+	email: {
 		type: String,
-		index:true
+		required: true,
+		trim: true,
+		minlength: 1,
+		unique: true,
+		validate: {
+			validator: function(value) {
+				if (validator.isEmail(value)) {
+					return true;
+				}
+			},
+			message: '{VALUE} is not a valid email'
+		}
 	},
 	password: {
-		type: String
+		type: String,
+		require: true,
+		minlength: 1
 	},
-	email: {
-		type: String
+	firstName: {
+		type: String,
+		require: true,
+		minlength: 1,
+		validate: {
+			validator: function(value) {
+				if (validator.isAlpha(value)) {
+					return true;
+				}
+			},
+			message: '{VALUE} is not a valid first name'
+		}
 	},
-	name: {
-		type: String
+	lastName: {
+		type: String,
+		require: true,
+		minlength: 1,
+		validate: {
+			validator: function(value) {
+				if (validator.isAlpha(value)) {
+					return true;
+				}
+			},
+			message: '{VALUE} is not a valid last name'
+		}
+	},
+	education: {
+		type: String,
+		require: true,
+		minlength: 7,
+		validate: {
+			validator: function(value) {
+				if (validator.isAlpha(value)) {
+					return true;
+				}
+			},
+			message: '{VALUE} is not a valid education'
+		}
+	},
+	securityAnswer: {
+		type: String,
+		require: true,
+		minlength: 1,
+		validate: {
+			validator: function(value) {
+				if (validator.isAlpha(value)) {
+					return true;
+				}
+			},
+			message: '{VALUE} is not a valid answer'
+		}
+	},
+	tokens: [
+		{
+			access: {
+				type: String,
+				reuired: true
+			},
+			token: {
+				type: String,
+				reuired: true
+			}
+		}
+	]
+});
+
+UserSchema.methods.toJSON = function() {
+	var user = this;
+	var userObject = user.toObject();
+
+	return _.pick(userObject, ['_id', 'email']);
+};
+
+UserSchema.methods.generateAuthToken = function() {
+	var user = this;
+	var access = 'auth';
+	var token = jwt
+		.sign({ _id: user._id.toHexString(), access }, 'password')
+		.toString();
+	user.tokens = user.tokens.concat([{ access, token }]);
+
+	return user.save().then(() => {
+		return token;
+	});
+};
+
+UserSchema.statics.findByToken = function(token) {
+	var User = this;
+	var decoded;
+
+	try {
+		decoded = jwt.verify(token, 'password');
+	} catch (e) {
+		return Promise.reject();
+	}
+
+	return User.findOne({
+		_id: decoded._id,
+		'tokens.token': token,
+		'tokens.access': 'auth'
+	});
+};
+
+UserSchema.statics.findByCredentials = function(email, password) {
+	var User = this;
+
+	return User.findOne({ email }).then(user => {
+		if (!user) {
+			return Promise.reject();
+		}
+
+		return new Promise((resolve, reject) => {
+			bcrypt.compare(password, user.password, (err, res) => {
+				if (res) {
+					resolve(user);
+				} else {
+					reject();
+				}
+			});
+		});
+	});
+};
+
+UserSchema.pre('save', function(next) {
+	var user = this;
+
+	if (user.isModified('password')) {
+		bcrypt.genSalt(10, (err, salt) => {
+			bcrypt.hash(user.password, salt, (err, hash) => {
+				user.password = hash;
+				next();
+			});
+		});
+	} else {
+		next();
 	}
 });
 
-var User = module.exports = mongoose.model('User', UserSchema);
+/* Creating a User Model */
+var User = mongoose.model('User', UserSchema);
 
-module.exports.createUser = function(newUser, callback){
-	bcrypt.genSalt(10, function(err, salt) {
-	    bcrypt.hash(newUser.password, salt, function(err, hash) {
-	        newUser.password = hash;
-	        newUser.save(callback);
-	    });
-	});
-}
-
-module.exports.getUserByUsername = function(username, callback){
-	var query = {username: username};
-	User.findOne(query, callback);
-}
-
-module.exports.getUserById = function(id, callback){
-	User.findById(id, callback);
-}
-
-module.exports.comparePassword = function(candidatePassword, hash, callback){
-	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-    	if(err) throw err;
-    	callback(null, isMatch);
-	});
-}
+module.exports = { User };

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+
+    <!-- Start CSS -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/dcfc86ee58.css" media="all">
+
+    <!-- NIU CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.niu.edu/masterto/themes/Theme_1_0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://niu.edu/masterto/themes/Theme_1_0/css/niu_theme_new.css">
+    <link rel="stylesheet" type="text/css" href="https://niu.edu/masterto/themes/Theme_1_0/css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="https://niu.edu/masterto/includes/MyFontsWebfontsOrderM3016798.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sanchez:400,400italic">
+    <link rel="shortcut icon" href="https://niu.edu/masterto/themes/Theme_1_0/css/theme_images/favicon.ico">
+
+    <!-- End CSS -->
+
+    <!-- Start JavaScript -->
+
+    <!-- Font Awesome -->
+    <script type="text/javascript" src="https://use.fontawesome.com/dcfc86ee58.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!--End JavaScript -->
+
+</head>
+
+<body>
+    <!-- Start Container -->
+    <div class="container">
+
+        <!-- Start Mobile Navigation -->
+        <div class="row visible-xs">
+            <div class="navbar mobilenav" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target="#collapse" data-toggle="collapse" title="Main Navigation"
+                        type="button">
+                        <span class="sr-only">Toggle Main Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <button class="navbar-toggle" data-target="#collapse-quicklinks" data-toggle="collapse" title="Quick Links"
+                        type="button">
+                        <span class="sr-only">Toggle Quick Links Navigation</span>
+                        <span class="glyphicon glyphicon-link"></span>
+                    </button>
+                    <button class="navbar-toggle" data-target="#collapse-info-for" data-toggle="collapse" title="Information For"
+                        type="button">
+                        <span class="sr-only">Toggle Information For Navigation</span>
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                    <button class="navbar-toggle" data-target="#collapse-search" data-toggle="collapse" title="NIU Site Search"
+                        type="button">
+                        <span class="sr-only">Toggle NIU Site Search</span>
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- End Mobile Navigation -->
+
+        <!-- Start NIU Header (Logo and NIU Links) -->
+        <header class="row standard-theme">
+            <a id="top_of_page"></a>
+
+            <!-- NIU Logo -->
+            <div class="col-sm-5 col-xs-12">
+                <h1>
+                    <a href="//www.niu.edu/index.shtml">
+                        <img alt="NIU Logo" style="max-width:45px;" src="https://niu.edu/masterto/themes/Theme_1_0/css/theme_images/niu-logo-shield.svg">
+
+                        <span class="niu-text">
+                            Northern Illinois University
+                        </span>
+                        <br>Virtual Renewable Energy Laboratory<br>
+                        <span class="tagline">
+                            College of Engineering and Engineering Technology
+                        </span>
+                    </a>
+                </h1>
+            </div>
+
+            <!-- NIU Links -->
+            <div class="col-sm-7 col-xs-12">
+                <div class="row">
+
+                    <a id="menu_global"></a>
+                    <ul class="nav navbar-nav navbar-right global visible-lg visible-md visible-sm">
+                        <li>
+                            <a href="https://www.niu.edu/web.shtml" onclick="ga('send','event','Exit Points','Global Nav','A-Z');">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <small>A-Z Index</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://directory.niu.edu/app/directory/PeopleSearch.aspx" onclick="ga('send','event','Exit Points','Global Nav','Directory');">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <small>Directory</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://calendar.niu.edu/" onclick="ga('send','event','Exit Points','Global Nav','Calendar');">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <small>Calendar</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://library.niu.edu/ulib/" onclick="ga('send','event','Exit Points','Global Nav','Libraries');">
+                                <span class="glyphicon glyphicon-book"></span>
+                                <small>Libraries</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://foundation.myniu.com/" onclick="ga('send','event','Exit Points','Global Nav','Make a Gift');"
+                                target="new">
+                                <span class="glyphicon glyphicon-gift" style="color: #cc0000;"></span>
+                                <small>Make a Gift</small>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="glyphicon glyphicon-link"></span>
+                                <small>Quick Links</small>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu quicklinks" role="menu">
+                                <li>
+                                    <a href="https://webcourses.niu.edu/" onclick="ga('send','event','Exit Points','Quick Links','Blackboard');"
+                                        target="new">
+                                        Blackboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://myniu.niu.edu" onclick="ga('send','event','Exit Points','Quick Links','My NIU');"
+                                        target="new">
+                                        My NIU
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://niu.campuslabs.com/engage/" onclick="ga('send','event','Exit Points','Quick Links','Huskie Link');"
+                                        target="new">
+                                        Huskie Link
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://o365.niu.edu/" onclick="ga('send','event','Exit Points','Quick Links','Office 365');"
+                                        target="new">
+                                        Office 365
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://anywhereapps.niu.edu" onclick="ga('send','event','Exit Points','Quick Links','Anywhere Apps');"
+                                        target="new">
+                                        Anywhere Apps
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://niu.qualtrics.com" onclick="ga('send','event','Exit Points','Quick Links','Qualtrics');"
+                                        target="new">
+                                        Qualtrics
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://niu.edu/careerservices/huskies-get-hired/index.shtml" onclick="ga('send','event','Exit Points','Quick Links','Huskies Get Hired');"
+                                        target="new">
+                                        Huskies Get Hired
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://o365.niu.edu/" onclick="ga('send','event','Exit Points','Quick Links','Student Email');">
+                                        Student Email
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://password.niu.edu/" onclick="ga('send','event','Exit Points','Quick Links','Password Self Service');"
+                                        target="new">
+                                        Password Self-Service
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- global menu for smartphone-->
+                    <div class="col-xs-12 visible-xs">
+                        <ul class="col-xs-12 nav nav-list globalmobile">
+                            <li>
+                                <a href="http://www.niu.edu/web.shtml" onclick="ga('send','event','Exit Points','Global Nav','A-Z');">
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                    <small>A-Z</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://directory.niu.edu/" onclick="ga('send','event','Exit Points','Global Nav','Directory');">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <small>Directory</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://calendar.niu.edu/" onclick="ga('send','event','Exit Points','Global Nav','Calendar');">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    <small>Calendar</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.ulib.niu.edu/" onclick="ga('send','event','Exit Points','Global Nav','Libraries');">
+                                    <span class="glyphicon glyphicon-book"></span>
+                                    <small>Libraries</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="row collapse navbar-collapse" id="collapse-search">
+                        <div class="search">
+                            <a id="niu_search"></a>
+                            <form action="//www.niu.edu/niusearch.asp" class="form-inline" name="SearchForm">
+
+                                <div class="form-group">
+                                    <input name="cx" type="hidden" value="015599932022858976637:nq6dbpwtmdi">
+                                    <input name="cof" type="hidden" value="FORID:11">
+                                    <label class="sr-only" for="searchNIU">Search NIU</label>
+                                    <div class="input-group">
+                                        <input accesskey="S" class="form-control" id="searchNIU" maxlength="255" name="q"
+                                            onfocus="this.value='';" placeholder="Search NIU" type="search">
+                                    </div>
+                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 visible-xs">
+                        <div class="collapse navbar-collapse quicklinks" id="collapse-quicklinks">
+                            <ul class="quicklinks" role="menu">
+                                <li>
+                                    <span class="glyphicon glyphicon-link"></span>
+                                    <strong> Quick Links</strong>
+                                </li>
+                                <ul>
+                                    <li>
+                                        <a href="https://webcourses.niu.edu/" onclick="ga('send','event','Exit Points','Quick Links','Blackboard');"
+                                            target="new">
+                                            Blackboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://myniu.niu.edu" onclick="ga('send','event','Exit Points','Quick Links','My NIU');"
+                                            target="new">
+                                            My NIU
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://niu.edu/careerservices/huskies-get-hired/index.shtml" onclick="ga('send','event','Exit Points','Quick Links','Huskies Get Hired');"
+                                            target="new">
+                                            Huskies Get Hired
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://niu.campuslabs.com/engage/" onclick="ga('send','event','Exit Points','Quick Links','Huskie Link');"
+                                            target="new">
+                                            Huskie Link
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="https://O365.niu.edu" onclick="ga('send','event','Exit Points','Quick Links','Office 365');"
+                                            target="new">
+                                            Office 365
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://O365.niu.edu" onclick="ga('send','event','Exit Points','Quick Links','Student Email');"
+                                            target="new">
+                                            Student Email
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://anywhereapps.niu.edu" onclick="ga('send','event','Exit Points','Quick Links','Anywhere Apps');"
+                                            target="new">
+                                            Anywhere Apps
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://password.niu.edu/" onclick="ga('send','event','Exit Points','Quick Links','Password Self Service');"
+                                            target="new">
+                                            Password Self-Service
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /info for, search, global menu section -->
+            </div>
+
+        </header>
+        <!-- End NIU Header -->
+
+
+        <!-- Start Navigation Menu -->
+        <div class="row">
+            <a id="menu_main"></a>
+
+            <nav class="navbar navbar-inverse navbar-justify mainnav">
+
+                <div class="navbar-header hidden-xs">
+                    <button class="navbar-toggle" data-target="#collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle Main Navigation</span>
+                    </button>
+                    <p class="visible-xs-block">Main Navigation</p>
+                </div>
+
+                <div class="collapse navbar-collapse main" id="collapse">
+                    <ul class="nav navbar-nav main">
+
+                        <li class="active col-md-1 pull-left" id="home" style="padding-left: 0px;">
+                            <a href="/" target="_parent">
+                                <span class="glyphicon glyphicon-home"></span>
+                            </a>
+                        </li>
+
+                        <li class="donate col-md-3 pull-right" style="padding-right: 0px;">
+                            <a class="donate" href={{loginLink}} target="_parent">
+                                <center>
+                                    {{loginData}}
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </center>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+        <!-- End Navigation Bar -->
+
+        <!-- Start Main Content -->
+        <div class="row main-content" role="main">
+            <a id="main_content"></a>
+            {{{body}}}
+
+            <!-- Comment out the next div opening in case of any page use this layout with left side top navbar -->
+            <!-- <div class="col-sm-3 col-sm-pull-9 leftCol"> -->
+            <content>
+                <div class="well contact-block">
+                    <div class="well contact-us">
+                        <h3>Contact Us</h3>
+                        <p>Virtual Renewable Energy Laboratory</p>
+                        <address>
+                            <strong>PI:, Liping Guo, Ph.D.<br></strong>
+                            <a href="tel:815-753-5615">815-753-1350</a><br>
+                            <a href="mailto:lguo@niu.edu">lguo@niu.edu</a>
+                        </address>
+                        <hr style="border-top: 1px dashed #8c8b8b;">
+                        <address>
+                            <strong>Co-PI:, Andrew W. Otieno, Ph.D.<br></strong>
+                            <a href="tel:815-753-5615">815-753-1754</a><br />
+                            <a href="mailto:otieno@niu.edu">otieno@niu.edu</a>
+                        </address>
+                    </div>
+                </div>
+                <p align="justify">
+                    <small>The project is funded by the <a href="https://www.nsf.gov/" target="_blank">National Science
+                            Foundation</a>.
+                        Improving Undergraduate STEM Education program (DUE-1712146) from June 2017 to May 2020.</small>
+                </p>
+                <a href="https://www.nsf.gov/" target="_blank">
+                    <img src="/images/NSFLogo.png" alt="National Science Foundation logo" class="img-responsive">
+                </a>
+            </content>
+        </div>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Start Footer -->
+    <footer class="row">
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-lg-push-4 col-md-push-4 col-sm-push-4 niu-home">
+            <!--Athletics and Social Columns-->
+            <p>
+                <a href="https://www.niu.edu/" target="new">
+                    <img alt="NIU Logo" src="https://niu.edu/masterto/themes/Theme_1_0/css/theme_images/niu_logo.png">
+                </a>
+            </p>
+            <p>
+                <a href="https://www.niu.edu/" target="new">
+                    NIU Home
+                </a>
+            </p>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-lg-pull-4 col-md-pull-4 col-sm-pull-4 footer-about">
+            <!--About Column-->
+            <p class="lead" style="text-align:left;margin-top:1em">
+                NIU Links
+            </p>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <ul class="about-list">
+
+                        <li>
+                            <a class="apply" href="https://www.niu.edu/apply/index.shtml" onclick="ga('send','event','Exit Points','Footer','Apply');">
+                                Apply to NIU
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.niu.edu/visit/index.shtml" onclick="ga('send','event','Exit Points','Footer','Visit Campus');">
+                                Visit Campus
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.niu.edu/visit/maps/" onclick="ga('send','event','Exit Points','Footer','Directions');">
+                                Directions/Maps
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.niu.edu/contactinfo.shtml" onclick="ga('send','event','Exit Points','Footer','Contact Info');">
+                                Contact Us
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <ul class="about-list">
+                        <li>
+                            <a href="https://www.niu.edu/emergencyinfo/" onclick="ga('send','event','Exit Points','Footer','Emergency Info');">
+                                Emergency Information
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.niu.edu/accessibility.shtml" onclick="ga('send','event','Exit Points','Footer','Accessibility');">
+                                Accessibility
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.niu.edu/employment/" onclick="ga('send','event','Exit Points','Footer','Jobs');">
+                                Jobs @ NIU
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.niuhuskies.com">
+                                NIUHuskies.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- End About Column-->
+        <div class="col-lg-4 col-md-4 col-sm-4 address" style="margin-top: 1.65em;">
+            <p>©
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear())
+                </script> Board of Trustees of<br>
+                <a href="https://www.niu.edu/">Northern Illinois University</a>.
+                <br> All rights reserved.<br>
+                <a href="https://doit.niu.edu/doit/policies_root/privacy-website.shtml">Privacy Notice</a>
+            </p>
+            <p>1425 W. Lincoln Hwy., DeKalb, IL 60115<br> 815-753-1000 </p>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+    </div>
+    <!-- End Container -->
+
+    <!-- Bootstrap JavaScript -->
+    <script type="text/javascript" src="https://niu.edu/masterto/themes/Theme_1_0/js/bootstrap.min.js"></script>
+
+    <!-- Left nav JavaScript -->
+    <script type="text/javascript" src="https://niu.edu/masterto/themes/Theme_1_0/js/leftnav_highlight.js"></script>
+    <script type="text/javascript" src="https://niu.edu/masterto/themes/Theme_1_0/js/respond.js"></script>
+</body>
+
+</html>

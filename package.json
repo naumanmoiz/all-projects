@@ -1,32 +1,24 @@
 {
-  "name": "VirtualLabs",
-  "version": "1.0.0",
-  "description": "Web Project",
-  "dependencies": {
-    "@shopify/draggable": "^1.0.0-beta.6",
-    "bcryptjs": "*",
-    "body-parser": "*",
-    "connect-flash": "*",
-    "cookie-parser": "^1.4.1",
-    "express": "^4.16.2",
-    "express-handlebars": "*",
-    "express-messages": "*",
-    "express-session": "*",
-    "express-validator": "^5.0.0",
-    "foobar": "^1.1.0",
-    "mongodb": "^3.0.2",
-    "mongoose": "^5.0.5",
-    "nodemon": "^1.14.12",
-    "passport": "*",
-    "passport-http": "*",
-    "passport-local": "*",
-    "socket.io": "^2.0.4",
-    "ssi": "^0.3.0"
-  },
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "Nauman Moiz Mohammed Abdul",
-  "license": "ISC"
+	"name": "renewablelabniu",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "node ./bin/www"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.18.3",
+		"cookie-parser": "^1.4.3",
+		"debug": "~2.6.9",
+		"express": "~4.16.0",
+		"hbs": "~4.0.1",
+		"http-errors": "~1.6.2",
+		"jsonwebtoken": "^8.3.0",
+		"lodash": "^4.17.11",
+		"mongodb": "^3.1.4",
+		"mongoose": "^5.2.14",
+		"morgan": "~1.9.0",
+		"npm": "~6.4.1",
+		"validator": "^10.7.1"
+	}
 }
