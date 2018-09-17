@@ -1,0 +1,76 @@
+<br>
+<!-- Start Main Content -->
+<div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+	<contenttext>
+		<h2 style="margin-top:10px;">Practical Experiment 2 : Solar Panel</h2>
+		<br>
+		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/solarpanel">
+			<div class="form-group">
+				<label for="seriesResistanceSolar" class="col-sm-2 control-label">Series Resistance</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="10" step="1" class="form-control" id="seriesResistanceSolar" name="seriesResistanceSolar"
+					 placeholder="Series Resistance">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="shuntResistanceSolar" class="col-sm-2 control-label">Shunt Resistance</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="10" step="1" class="form-control" id="shuntResistanceSolar" name="shuntResistanceSolar" placeholder="Shunt Resistance">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inductorCurrentSolar" class="col-sm-2 control-label">Inductor Current</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="1" step="0.00001" class="form-control" id="inductorCurrentSolar" name="inductorCurrentSolar"
+					 placeholder="Inductor Current">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="resistorCurrentSolar" class="col-sm-2 control-label">Resistor Current</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="1" step="0.00001" class="form-control" id="resistorCurrentSolar" name="resistorCurrentSolar"
+					 placeholder="Resistor Current">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="cellsSeriesSolar" class="col-sm-2 control-label">Cells in Series</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="100" step="1" class="form-control" id="cellsSeriesSolar" name="cellsSeriesSolar"
+					 placeholder="Cells in Series">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="cellsParallelSolar" class="col-sm-2 control-label">Cells in Parallel</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" max="100" step="1" class="form-control" id="cellsParallelSolar" name="cellsParallelSolar"
+					 placeholder="Cells in Parallel">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</form>
+	</contenttext>
+</div>
+<!-- End Main Content -->
+
+<!-- Left bar div opening tag -->
+<div class="col-sm-3 col-sm-pull-9 leftCol">
+	<!-- Start Left Navigaton -->
+	<div class="panel-body leftnav">
+		<content>
+			<ul class="nav nav-stacked">
+				<li class="active"><a href="#"><strong>Practical Experiments</strong></a>
+					<ul class="list-group">
+						<li class="list-group-item"><a href="/users/index">Home</a></li>
+						<li class="list-group-item"><a href="/users/practicalexperiments/buckconverter">Buck Converter</a></li>
+						<li class="list-group-item active"><a href="#">Solar Panel</a></li>
+						<li class="list-group-item"><a href="/users/practicalexperiments/boostconverter">Boost Converter</a></li>
+					</ul>
+				</li>
+			</ul>
+		</content>
+	</div>
+	<!-- End Left Navigation -->

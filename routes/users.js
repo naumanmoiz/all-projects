@@ -78,6 +78,8 @@ router.post('/register', function(req, res, next) {
 		securityAnswer: req.body.userRegisterSecurityAnswer
 	});
 
+	console.log(user);
+	
 	user.save(function(err) {
 		if (err) {
 			if (err.name === 'MongoError' && err.code === 11000) {
