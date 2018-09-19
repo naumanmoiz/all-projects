@@ -4,6 +4,43 @@
 	<contenttext>
 		<h2 style="margin-top:10px;">Practical Experiment 1 : Buck Converter</h2>
 		<br>
+
+		<!-- Start of Content -->
+		<div class="row">
+			<div class="col-lg-12 col-md-12" id="graphD3">
+				{{#if resultData}}
+				<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+				<script type="text/javascript">
+					var dataJSON = {{ resultData }};
+					var m = [];
+					var n = [];
+					var s = [];
+
+					for (i in dataJSON.Time) {
+						m[i] = dataJSON.Time[i];
+						s[i] = dataJSON["Outputs Data"][0][i];
+						n.push(s[i][0]);
+					}
+
+					var data = [
+						[{ 'x': 0, 'y': 0 }]
+					];
+
+					console.log(data);
+
+					for (j in dataJSON.Time) {
+						data[0].push({
+							'x': m[j],
+							'y': n[j]
+						});
+					}
+
+					console.log(data);
+				</script>
+				<script type="text/javascript" src="/javascripts/graph.js"></script>
+			</div>
+		</div>
+		{{else}}
 		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckconverter">
 			<div class="form-group">
 				<label for="voltageInputBuck" class="col-sm-2 control-label">Voltage Input</label>
@@ -15,7 +52,8 @@
 			<div class="form-group">
 				<label for="dutyCycleBuck" class="col-sm-2 control-label">Duty Cycle</label>
 				<div class="col-sm-10">
-					<input type="number" min="0" max="1" step="0.0001" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck" placeholder="Duty Cycle">
+					<input type="number" min="0" max="1" step="0.0001" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck"
+					 placeholder="Duty Cycle">
 				</div>
 			</div>
 			<div class="form-group">
@@ -52,6 +90,9 @@
 				</div>
 			</div>
 		</form>
+		{{/if}}
+		<!-- End of Content -->
+
 	</contenttext>
 </div>
 <!-- End Main Content -->

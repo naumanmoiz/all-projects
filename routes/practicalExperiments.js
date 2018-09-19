@@ -60,7 +60,6 @@ router.post('/buckconverter', authenticate, function(req, res, next) {
 
 	client.on('data', function(data) {
 		console.log('Received: ' + data);
-		client.destroy(); // kill client after server's response
 
 		res.render('baseNIULoginViews/practicalExperiments/buckConverter', {
 			title:
@@ -79,7 +78,6 @@ router.post('/buckconverter', authenticate, function(req, res, next) {
 	client.on('close', function() {
 		console.log('Connection closed');
 	});
-
 });
 
 /* GET solarpanel page. */
@@ -116,7 +114,6 @@ router.post('/solarpanel', authenticate, function(req, res, next) {
 
 	client.on('data', function(data) {
 		console.log('Received: ' + data);
-		client.destroy(); // kill client after server's response
 
 		res.render('baseNIULoginViews/practicalExperiments/solarpanel', {
 			title:
@@ -135,7 +132,6 @@ router.post('/solarpanel', authenticate, function(req, res, next) {
 	client.on('close', function() {
 		console.log('Connection closed');
 	});
-
 });
 
 /* GET boostconverter page. */
@@ -160,7 +156,7 @@ router.post('/boostconverter', authenticate, function(req, res, next) {
 		r1: 0,
 		Fu: req.body.frequencyBoost,
 		Ss: req.body.stepSizeBoost,
-		Ft: (req.body.stepSizeBoost * 10)
+		Ft: req.body.stepSizeBoost * 10
 	};
 
 	client.connect(
@@ -175,7 +171,6 @@ router.post('/boostconverter', authenticate, function(req, res, next) {
 
 	client.on('data', function(data) {
 		console.log('Received: ' + data);
-		client.destroy(); // kill client after server's response
 
 		res.render('baseNIULoginViews/practicalExperiments/boostConverter', {
 			title:
@@ -194,7 +189,6 @@ router.post('/boostconverter', authenticate, function(req, res, next) {
 	client.on('close', function() {
 		console.log('Connection closed');
 	});
-
 });
 
 module.exports = router;
