@@ -4,17 +4,17 @@ var colors = ['steelblue', 'green', 'red', 'purple'];
 // Create Margins and Axis and hook our zoom function
 //************************************************************
 var margin = { top: 20, right: 30, bottom: 30, left: 50 },
-	width = 960 - margin.left - margin.right,
+	width = 860 - margin.left - margin.right,
 	height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale
 	.linear()
-	.domain([0, 0.6])
+	.domain([xMinRange, xMaxRange])
 	.range([0, width]);
 
 var y = d3.scale
 	.linear()
-	.domain([0, 0.5])
+	.domain([yMinRange, yMaxRange])
 	.range([height, 0]);
 
 var xAxis = d3.svg
@@ -71,7 +71,7 @@ svg
 	.attr('transform', 'rotate(-90)')
 	.attr('y', -margin.left + 10)
 	.attr('x', -height / 2)
-	.text('Axis Label');
+	.text('');
 
 svg
 	.append('clipPath')

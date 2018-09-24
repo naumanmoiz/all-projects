@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 var { authenticate } = require('../middleware/authenticate');
 var app = express();
 var net = require('net');
-var client = new net.Socket();
 
 /**
  * bodyParser.urlencoded(options)
@@ -48,36 +47,37 @@ router.post('/buckconverter', authenticate, function(req, res, next) {
 		Fu: req.body.frequencyBuck
 	};
 
-	client.connect(
-		6801,
-		'127.0.0.1',
-		function() {
-			console.log('Connected');
-			client.write(JSON.stringify(requestInput));
-			client.end();
-		}
-	);
+	var buckOutputData = null;
 
-	client.on('data', function(data) {
-		console.log('Received: ' + data);
-
-		res.render('baseNIULoginViews/practicalExperiments/buckConverter', {
-			title:
-				'Buck Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
-			loginLink: '/users/logout',
-			loginData: 'Logout',
-			resultData: data,
-			layout: 'layouts/baseNIULoginLayout.hbs'
-		});
+	const client = net.createConnection({ port: 6801 }, () => {
+		// 'connect' listener
+		console.log('Connected to server!');
+		client.write(JSON.stringify(requestInput));
+	});
+	  
+	client.on('data', (data) => {
+		buckOutputData = data;
+		client.end();
 	});
 
 	client.on('error', function(err) {
 		console.log(err);
 	});
 
-	client.on('close', function() {
-		console.log('Connection closed');
+	client.on('end', () => {
+		console.log('Disconnected from server');
+		console.log('Recieved' + buckOutputData);
+
+		res.render('baseNIULoginViews/practicalExperiments/buckConverter', {
+			title:
+				'Buck Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+			loginLink: '/users/logout',
+			loginData: 'Logout',
+			resultData: buckOutputData,
+			layout: 'layouts/baseNIULoginLayout.hbs'
+		});
 	});
+
 });
 
 /* GET solarpanel page. */
@@ -102,35 +102,35 @@ router.post('/solarpanel', authenticate, function(req, res, next) {
 		Cip: req.body.cellsParallelSolar
 	};
 
-	client.connect(
-		7801,
-		'127.0.0.1',
-		function() {
-			console.log('Connected');
-			client.write(JSON.stringify(requestInput));
-			client.end();
-		}
-	);
+	var solarOutputData = null;
 
-	client.on('data', function(data) {
-		console.log('Received: ' + data);
-
-		res.render('baseNIULoginViews/practicalExperiments/solarpanel', {
-			title:
-				'Solar Panel (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
-			loginLink: '/users/logout',
-			loginData: 'Logout',
-			resultData: data,
-			layout: 'layouts/baseNIULoginLayout.hbs'
-		});
+	const client = net.createConnection({ port: 7801 }, () => {
+		// 'connect' listener
+		console.log('Connected to server!');
+		client.write(JSON.stringify(requestInput));
+	});
+	  
+	client.on('data', (data) => {
+		solarOutputData = data;
+		client.end();
 	});
 
 	client.on('error', function(err) {
 		console.log(err);
 	});
 
-	client.on('close', function() {
-		console.log('Connection closed');
+	client.on('end', () => {
+		console.log('Disconnected from server');
+		console.log('Recieved' + solarOutputData);
+
+		res.render('baseNIULoginViews/practicalExperiments/solarpanel', {
+			title:
+				'Solar Panel (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+			loginLink: '/users/logout',
+			loginData: 'Logout',
+			resultData: solarOutputData,
+			layout: 'layouts/baseNIULoginLayout.hbs'
+		});
 	});
 });
 
@@ -159,35 +159,35 @@ router.post('/boostconverter', authenticate, function(req, res, next) {
 		Ft: req.body.stepSizeBoost * 10
 	};
 
-	client.connect(
-		8901,
-		'127.0.0.1',
-		function() {
-			console.log('Connected');
-			client.write(JSON.stringify(requestInput));
-			client.end();
-		}
-	);
+	var boostOutputData = null;
 
-	client.on('data', function(data) {
-		console.log('Received: ' + data);
-
-		res.render('baseNIULoginViews/practicalExperiments/boostConverter', {
-			title:
-				'Boost Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
-			loginLink: '/users/logout',
-			loginData: 'Logout',
-			resultData: data,
-			layout: 'layouts/baseNIULoginLayout.hbs'
-		});
+	const client = net.createConnection({ port: 8901 }, () => {
+		// 'connect' listener
+		console.log('Connected to server!');
+		client.write(JSON.stringify(requestInput));
+	});
+	  
+	client.on('data', (data) => {
+		boostOutputData = data;
+		client.end();
 	});
 
 	client.on('error', function(err) {
 		console.log(err);
 	});
 
-	client.on('close', function() {
-		console.log('Connection closed');
+	client.on('end', () => {
+		console.log('Disconnected from server');
+		console.log('Recieved' + boostOutputData);
+
+		res.render('baseNIULoginViews/practicalExperiments/boostConverter', {
+			title:
+				'Boost Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+			loginLink: '/users/logout',
+			loginData: 'Logout',
+			resultData: boostOutputData,
+			layout: 'layouts/baseNIULoginLayout.hbs'
+		});
 	});
 });
 

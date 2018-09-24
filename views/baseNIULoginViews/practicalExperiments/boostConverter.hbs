@@ -6,60 +6,113 @@
 		<br>
 
 		<!-- Start of Content -->
+
+		<!-- Start of Graph -->
+		{{#if resultData}}
 		<div class="row">
 			<div class="col-lg-12 col-md-12" id="graphD3">
-				{{#if resultData}}
+				
+				<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+				<script type="text/javascript">
+					var dataJSON = "{{ resultData }}";
+					dataJSON = JSON.parse(dataJSON.replace(/&quot;/g,'"'));
+
+					var m = [];
+					var n = [];
+					var xMaxRange = null;
+					var yMaxRange = null;
+					var xMinRange = null;
+					var yMinRange = null;
+
+					for (i in dataJSON["BoostConverter.V_out"]) {
+						m[i] = dataJSON["BoostConverter.V_out"][i];
+						if (m[i] > m[i-1]) {
+							xMaxRange = m[i];
+						}
+						if (m[i] < m[i-1]) {
+							xMinRange = m[i];
+						}
+
+						n[i] = dataJSON["BoostConverter.L_current"][i];
+						if (n[i] > n[i-1]) {
+							yMaxRange = n[i];
+						}
+						if (n[i] < n[i-1]) {
+							yMinRange = n[i];
+						}
+					}
+
+					var data = [
+						[{ 'x': m[0], 'y': n[0] }]
+					];
+
+					for (j in dataJSON["BoostConverter.V_out"]) {
+						data[0].push({
+							'x': m[j],
+							'y': n[j]
+						});
+					}
+
+					console.log(data);
+                </script>
+				<script type="text/javascript" src="/javascripts/graph.js"></script>
+				<br><br>
+				<a class="btn btn-primary" href="/users/practicalexperiments/boostconverter">Return to Experiment</a>
+
 			</div>
 		</div>
+		<!-- End of Graph -->
+
+		<!-- Start of Form-->
 		{{else}}
 		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/boostconverter">
 			<div class="form-group">
 				<label for="voltageInputBoost" class="col-sm-2 control-label">Voltage Input</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="400000" step="0.0001" class="form-control" id="voltageInputBoost" name="voltageInputBoost"
-					 placeholder="Voltage Input">
+					 placeholder="Voltage Input" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="dutyCycleBoost" class="col-sm-2 control-label">Duty Cycle</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="1" step="0.0001" class="form-control" id="dutyCycleBoost" name="dutyCycleBoost"
-					 placeholder="Duty Cycle">
+					 placeholder="Duty Cycle" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inductanceBoost" class="col-sm-2 control-label">Inductance</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="1" step="0.0000000001" class="form-control" id="inductanceBoost" name="inductanceBoost"
-					 placeholder="Inductance (in Henry)">
+					 placeholder="Inductance (in Henry)" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="capacitanceBoost" class="col-sm-2 control-label">Capacitance</label>
 				<div class="col-sm-10">
 					<input type="number" min="0.0001" max="0.0009" step="0.0000000001" class="form-control" id="capacitanceBoost" name="capacitanceBoost"
-					 placeholder="Capacitance">
+					 placeholder="Capacitance" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="resistanceBoost" class="col-sm-2 control-label">Resistance</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="40000000" step="0.0001" class="form-control" id="resistanceBoost" name="resistanceBoost"
-					 placeholder="Resistance">
+					 placeholder="Resistance" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="frequencyBoost" class="col-sm-2 control-label">Frequency</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="40000000" step="1" class="form-control" id="frequencyBoost" name="frequencyBoost"
-					 placeholder="Frequency">
+					 placeholder="Frequency" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="stepSizeBoost" class="col-sm-2 control-label">Step Size</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="0.000001" step="0.00000000001" class="form-control" id="stepSizeBoost" name="stepSizeBoost"
-					 placeholder="Step Size">
+					 placeholder="Step Size" required>
 				</div>
 			</div>
 			<div class="form-group">
@@ -69,6 +122,8 @@
 			</div>
 		</form>
 		{{/if}}
+		<!-- End of Form -->
+
 		<!-- End of Content -->
 
 	</contenttext>

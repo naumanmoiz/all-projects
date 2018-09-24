@@ -6,53 +6,67 @@
 		<br>
 
 		<!-- Start of Content -->
+
+		<!-- Start of Graph -->
+		{{#if resultData}}
 		<div class="row">
 			<div class="col-lg-12 col-md-12" id="graphD3">
-				{{#if resultData}}
+				
+                <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+                <script type="text/javascript">
+                
+                </script>
+                <script type="text/javascript" src="/javascripts/graph.js"></script>
+				<br><br>
+				<a class="btn btn-primary" href="/users/practicalexperiments/solarpanel">Return to Experiment</a>
+
 			</div>
 		</div>
+        <!-- End of Graph -->
+
+		<!-- Start of Form-->
 		{{else}}
 		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/solarpanel">
 			<div class="form-group">
 				<label for="seriesResistanceSolar" class="col-sm-2 control-label">Series Resistance</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="10" step="1" class="form-control" id="seriesResistanceSolar" name="seriesResistanceSolar"
-					 placeholder="Series Resistance">
+					 placeholder="Series Resistance" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="shuntResistanceSolar" class="col-sm-2 control-label">Shunt Resistance</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="10" step="1" class="form-control" id="shuntResistanceSolar" name="shuntResistanceSolar"
-					 placeholder="Shunt Resistance">
+					 placeholder="Shunt Resistance" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inductorCurrentSolar" class="col-sm-2 control-label">Inductor Current</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="1" step="0.00001" class="form-control" id="inductorCurrentSolar" name="inductorCurrentSolar"
-					 placeholder="Inductor Current">
+					 placeholder="Inductor Current" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="resistorCurrentSolar" class="col-sm-2 control-label">Resistor Current</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="1" step="0.00001" class="form-control" id="resistorCurrentSolar" name="resistorCurrentSolar"
-					 placeholder="Resistor Current">
+					 placeholder="Resistor Current" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="cellsSeriesSolar" class="col-sm-2 control-label">Cells in Series</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="100" step="1" class="form-control" id="cellsSeriesSolar" name="cellsSeriesSolar"
-					 placeholder="Cells in Series">
+					 placeholder="Cells in Series" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="cellsParallelSolar" class="col-sm-2 control-label">Cells in Parallel</label>
 				<div class="col-sm-10">
 					<input type="number" min="0" max="100" step="1" class="form-control" id="cellsParallelSolar" name="cellsParallelSolar"
-					 placeholder="Cells in Parallel">
+					 placeholder="Cells in Parallel" required>
 				</div>
 			</div>
 			<div class="form-group">
@@ -62,6 +76,8 @@
 			</div>
 		</form>
 		{{/if}}
+		<!-- End of Form -->
+
 		<!-- End of Content -->
 
 	</contenttext>
