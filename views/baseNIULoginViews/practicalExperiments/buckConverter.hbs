@@ -1,4 +1,7 @@
 <br>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/javascripts/experiments/buckconverter.js"></script>
 <!-- Start Main Content -->
 <div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
 	<contenttext>
@@ -11,11 +14,11 @@
 		{{#if resultData}}
 		<div class="row">
 			<div class="col-lg-12 col-md-12" id="graphD3">
-				
+
 				<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
 				<script type="text/javascript">
 					var dataJSON = "{{ resultData }}";
-					dataJSON = JSON.parse(dataJSON.replace(/&quot;/g,'"'));
+					dataJSON = JSON.parse(dataJSON.replace(/&quot;/g, '"'));
 
 					var m = [];
 					var n = [];
@@ -27,19 +30,19 @@
 
 					for (i in dataJSON.Time) {
 						m[i] = dataJSON.Time[i];
-						if (m[i] > m[i-1]) {
+						if (m[i] > m[i - 1]) {
 							xMaxRange = m[i];
 						}
-						if (m[i] < m[i-1]) {
+						if (m[i] < m[i - 1]) {
 							xMinRange = m[i];
 						}
 
 						s[i] = dataJSON["Outputs Data"][0][i];
 						n.push(s[i][0]);
-						if (n[i] > n[i-1]) {
+						if (n[i] > n[i - 1]) {
 							yMaxRange = n[i];
 						}
-						if (n[i] < n[i-1]) {
+						if (n[i] < n[i - 1]) {
 							yMinRange = n[i];
 						}
 					}
@@ -65,9 +68,55 @@
 		</div>
 		<!-- End of Graph -->
 
-		<!-- Start of Form-->
 		{{else}}
-		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckconverter">
+		<div class="circuit-container js-circuit-container">
+			<span class="buck-circuit js-circuit"></span>
+
+			<span class="buck-circuit-connection a vert js-circuit-connection js-a" id="zva"></span>
+			<span class="buck-circuit-connection b vert js-circuit-connection js-b" id="yhb"></span>
+			<span class="buck-circuit-connection c vert js-circuit-connection js-c" id="xvc"></span>
+			<span class="buck-circuit-connection d vert js-circuit-connection js-e" id="whe"></span>
+			<span class="buck-circuit-connection e hor js-circuit-connection js-f" id="vvf"></span>
+			<span class="buck-circuit-connection f vert js-circuit-connection js-h" id="uvh"></span>
+		</div>
+
+		<div class="drag-container">
+			<div id="di21" class="drag-item">
+				<img src="/images/experiments/buckConverter/resistor.svg" id="avu" class="img-svg rotateimg90" />
+			</div>
+		</div>
+		<div class="drag-container">
+			<div id="di22" class="drag-item">
+				<img src="/images/experiments/buckConverter/inductor.svg" id="bhw" class="img-svg" />
+			</div>
+		</div>
+
+		<div class="drag-container">
+			<div id="di22" class="drag-item">
+				<img src="/images/experiments/buckConverter/diode.svg" id="cvx" class="img-svg rotateimg90" />
+			</div>
+		</div>
+
+		<div class="drag-container">
+			<div id="di22" class="drag-item">
+				<img src="/images/experiments/buckConverter/transistor.svg" id="dhy" class="img-svg rotateimg180" />
+			</div>
+		</div>
+
+		<div class="drag-container">
+			<div id="di22" class="drag-item">
+				<img src="/images/experiments/buckConverter/capacitor.svg" id="evv" class="img-svg rotateimg90" />
+			</div>
+		</div>
+
+		<div class="drag-container">
+			<div id="di23" class="drag-item">
+				<img src="/images/experiments/buckConverter/power.svg" id="fvz" class="img-svg" />
+			</div>
+		</div>
+
+		<!-- Start of Form-->
+		<form class="form-horizontal" id="buckConverter" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckconverter">
 			<div class="form-group">
 				<label for="voltageInputBuck" class="col-sm-2 control-label">Voltage Input</label>
 				<div class="col-sm-10">
@@ -112,7 +161,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary" onclick="onBtnClick()">Submit</button>
 				</div>
 			</div>
 		</form>
