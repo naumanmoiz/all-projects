@@ -71,35 +71,40 @@
 }
 
 .buck-circuit-connection.a {
-	left: 40px;
+	left: 36px;
 	top: 125px;
 }
 
 .buck-circuit-connection.b {
 	left: 240px;
-	top: -1px;
+	top: -5px;
 	z-index: 2;
 }
 
 .buck-circuit-connection.c {
-	left: 310px;
+	left: 307px;
 	top: 113px;
 }
 
 .buck-circuit-connection.d {
 	left: 475px;
-	top: -1px;
+	top: -5px;
 	z-index: 2;
 }
 
 .buck-circuit-connection.e {
-	left: 580px;
+	left: 578px;
 	top: 113px;
 }
 
 .buck-circuit-connection.f {
-	left: 670px;
+	left: 669px;
 	top: 120px;
+}
+
+.buck-circuit-connection.g {
+	left: 155px;
+	top: 159px;
 }
 
 .drag-container {
@@ -137,4 +142,12 @@
 	-ms-transform: rotate(180deg);
 	-o-transform: rotate(180deg);
 	transform: rotate(180deg);
+}
+
+.rotateimg90minus {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
 }

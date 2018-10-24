@@ -13,9 +13,9 @@
    id="svg2"
    x="0px"
    y="0px"
-   width="50.587597"
+   width="40.576351"
    height="39.09"
-   viewBox="0 0 50.587599 39.09"
+   viewBox="0 0 40.576353 39.09"
    enable-background="new 0 0 32 32"
    xml:space="preserve"
    sodipodi:docname="transistor.svg"
@@ -41,8 +41,8 @@
    inkscape:measure-start="49.3465,14.8911"
    inkscape:measure-end="24.9505,-8.63366"
    inkscape:zoom="12.625"
-   inkscape:cx="17.114538"
-   inkscape:cy="19.838436"
+   inkscape:cx="15.164434"
+   inkscape:cy="16.670121"
    inkscape:window-x="-9"
    inkscape:window-y="-9"
    inkscape:window-maximized="1"
@@ -51,34 +51,34 @@
    fit-margin-left="0"
    fit-margin-right="0"
    fit-margin-bottom="0"><sodipodi:guide
-     position="-10.749311,20.541002"
+     position="-15.711827,20.541003"
      orientation="0,1"
      id="guide4570"
      inkscape:locked="false" /><inkscape:grid
      type="xygrid"
      id="grid4586"
-     originx="25.250691"
-     originy="-18.458998" /><sodipodi:guide
-     position="15.25069,36.541001"
+     originx="20.288176"
+     originy="-18.458997" /><sodipodi:guide
+     position="10.288174,36.541002"
      orientation="1,0"
      id="guide5139"
      inkscape:locked="false" /><sodipodi:guide
-     position="35.250691,-0.45899844"
+     position="30.288175,-0.45899736"
      orientation="1,0"
      id="guide5141"
      inkscape:locked="false" /></sodipodi:namedview>
 
 <path
-   style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-   d="m 33.25069,38.549 17,-20.000001"
+   style="fill:none;stroke:#000000;stroke-width:1.51181102;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="M 28.288174,38.549 40.288176,21.548997"
    id="path4582"
    inkscape:connector-curvature="0" /><path
-   style="fill:#c8b7b7;stroke:#000000;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-   d="m 17.25069,38.549 -17.00000045,-20"
+   style="fill:#c8b7b7;stroke:#000000;stroke-width:1.51181102;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="M 12.288174,38.549 0.288176,21.548997"
    id="path4584"
    inkscape:connector-curvature="0" /><g
    id="icon"
-   transform="translate(9.2926885,-1.689)">
+   transform="translate(4.3301728,-1.689)">
 	<g
    id="part">
 		<g
