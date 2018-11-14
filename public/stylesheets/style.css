@@ -57,6 +57,16 @@
 	display: block;
 	width: 100%;
 	height: 100%;
+	background: url(/images/experiments/buckConverter/practicalInkScape.svg) no-repeat;
+	background-size: 800px 300px;
+	z-index: 3;
+}
+
+.buck-circuit-auto {
+	position: sticky;
+	display: block;
+	width: 100%;
+	height: 100%;
 	background: url(/images/experiments/buckConverter/practical.png) no-repeat;
 	background-size: 800px 300px;
 	z-index: 3;
@@ -71,40 +81,84 @@
 }
 
 .buck-circuit-connection.a {
-	left: 36px;
+	z-index: 3;
+	left: 52px;
 	top: 125px;
 }
 
 .buck-circuit-connection.b {
-	left: 240px;
+	left: 256px;
 	top: -5px;
 	z-index: 2;
 }
 
 .buck-circuit-connection.c {
-	left: 307px;
+	left: 323px;
 	top: 113px;
 }
 
 .buck-circuit-connection.d {
-	left: 475px;
+	left: 490px;
 	top: -5px;
 	z-index: 2;
 }
 
 .buck-circuit-connection.e {
-	left: 578px;
+	left: 594px;
 	top: 113px;
 }
 
 .buck-circuit-connection.f {
-	left: 669px;
+	left: 685px;
 	top: 120px;
 }
 
 .buck-circuit-connection.g {
-	left: 155px;
+	left: 168px;
 	top: 159px;
+}
+
+.buck-circuit-connection.h {
+	background-size: 80px 80px;
+	z-index: 3;
+	left: 52px;
+	top: 425px;
+}
+
+.buck-circuit-connection.i {
+	background-size: 80px 80px;
+	left: 254px;
+	top: 299px;
+}
+
+.buck-circuit-connection.j {
+	background-size: 80px 80px;
+	left: 323px;
+	top: 413px;
+}
+
+.buck-circuit-connection.k {
+	background-size: 80px 80px;
+	left: 488px;
+	top: 299px;
+}
+
+.buck-circuit-connection.l {
+	background-size: 80px 80px;
+	left: 594px;
+	top: 413px;
+}
+
+.buck-circuit-connection.m {
+	background-size: 80px 80px;
+	left: 685px;
+	top: 420px;
+}
+
+.buck-circuit-connection.n {
+	background-size: 80px 80px;
+	left: 168px;
+	top: 459px;
 }
 
 .drag-container {
@@ -114,7 +168,6 @@
 }
 
 .drag-item {
-	border: 1px dotted #999999;
 	padding: 5px;
 	margin: 10px;
 	width: 100px;
