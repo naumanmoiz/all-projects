@@ -9,12 +9,12 @@ var margin = { top: 20, right: 30, bottom: 30, left: 50 },
 
 var x = d3.scale
 	.linear()
-	.domain([d3.min(graphTime), d3.max(graphTime)])
+	.domain([xVoltageMin, xVoltageMax])
 	.range([0, width]);
 
 var y = d3.scale
 	.linear()
-	.domain([-50, 50])
+	.domain([0, 30])
 	.range([height, 0]);
 
 var xAxis = d3.svg
@@ -44,7 +44,7 @@ var zoom = d3.behavior
 // Generate our SVG object
 //************************************************************
 var svg = d3
-	.select('#graphD3')
+	.select('#graphVoltage')
 	.append('svg')
 	.call(zoom)
 	.attr('width', width + margin.left + margin.right)
@@ -90,7 +90,7 @@ var line = d3.svg
 	});
 
 svg.selectAll('.line')
-	.data(data)
+	.data(dataVoltage)
 	.enter()
 	.append('path')
 	.attr('class', 'line')
@@ -105,7 +105,7 @@ svg.selectAll('.line')
 //************************************************************
 var points = svg
 	.selectAll('.dots')
-	.data(data)
+	.data(dataVoltage)
 	.enter()
 	.append('g')
 	.attr('class', 'dots')

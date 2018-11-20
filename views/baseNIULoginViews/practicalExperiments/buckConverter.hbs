@@ -22,55 +22,82 @@
 						var dataJSON = "{{ resultData }}";
 						dataJSON = JSON.parse(dataJSON.replace(/&quot;/g, '"'));
 
-						var graphTime = [];
-						var graphCurrent = [];
-						var graphVoltage = [];
-						var xMaxRange = null;
-						var yMaxRange = null;
-						var xMinRange = null;
-						var yMinRange = null;
+						var graphCurrentTime = [];
+						var xCurrentMin = null;
+						var xCurrentMax = null;
 
-						for (i in dataJSON.time) {
+						var graphVoltageTime = [];
+						var xVoltageMin = null;
+						var xVoltageMax = null;
+
+						var graphCurrent = [];
+						var yCurrentMin = null;
+						var yCurrentMax = null;
+
+						var graphTempVoltage = [];
+						var graphVoltage = [];
+						var yVoltageMin = null;
+						var yVoltageMax = null;
+
+						for (i = 0; i <= 5000; i++) {
 							// Setting up for X-Axis
-							graphTime[i] = dataJSON.time[i];
-							if (graphTime[i] < graphTime[i - 1]) {
-								xMinRange = graphTime[i];
+							graphCurrentTime[i] = dataJSON.T[i];
+							if (graphCurrentTime[i] < graphCurrentTime[i - 1]) {
+								xCurrentMin = graphCurrentTime[i];
 							}
-							if (graphTime[i] > graphTime[i - 1]) {
-								xMaxRange = graphTime[i];
+							if (graphCurrentTime[i] > graphCurrentTime[i - 1]) {
+								xCurrentMax = graphCurrentTime[i];
+							}
+
+							graphVoltageTime[i] = dataJSON.Time[i];
+							if (graphVoltageTime[i] < graphVoltageTime[i - 1]) {
+								xVoltageMin = graphVoltageTime[i];
+							}
+							if (graphVoltageTime[i] > graphVoltageTime[i - 1]) {
+								xVoltageMax = graphVoltageTime[i];
 							}
 
 							// Setting up for Y-Axis
-							graphCurrent[i] = dataJSON.iL[i];
+							graphCurrent[i] = dataJSON.I[i];
 							if (graphCurrent[i] < graphCurrent[i - 1]) {
-								yMinRange = graphCurrent[i];
+								yCurrentMin = graphCurrent[i];
+							}
+							if (graphCurrent[i] > graphCurrent[i - 1]) {
+								yCurrentMax = graphCurrent[i];
 							}
 
-							graphVoltage[i] = dataJSON.vC[i];
+							graphTempVoltage[i] = dataJSON["Outputs Data"][0][i];
+							graphVoltage.push(graphTempVoltage[i][0]);
 							if (graphVoltage[i] < graphVoltage[i - 1]) {
-								yMaxRange = graphVoltage[i];
+								yVoltageMin = graphVoltage[i];
+							}
+							if (graphVoltage[i] > graphVoltage[i - 1]) {
+								yVoltageMax = graphVoltage[i];
 							}
 						}
 
-						var data = [
-							[{ 'x': graphTime[0], 'y': graphCurrent[0] }],
-							[{ 'x': graphTime[0], 'y': graphVoltage[0] }]
+						var dataCurrent = [
+							[{ x: graphCurrentTime[0], y: graphCurrent[0] }]
 						];
 
-						for (j in dataJSON.Time) {
-							data[0].push({
-								'x': graphTime[j],
-								'y': graphCurrent[j]
+						var dataVoltage = [
+							[{ x: graphVoltageTime[0], y: graphVoltage[0] }]
+						];
+
+						for (j = 0; j <= 5000; j++) {
+							dataCurrent[0].push({
+								x: graphCurrentTime[j],
+								y: graphCurrent[j]
 							});
-							data[1].push({
-								'x': graphTime[j],
-								'y': graphVoltage[j]
+							dataVoltage[0].push({
+								x: graphVoltageTime[j],
+								y: graphVoltage[j]
 							});
 						}
-
-						console.log(data);
+						console.log(dataVoltage);
 					</script>
-					<script type="text/javascript" src="/javascripts/graph.js"></script>
+					<script src="/javascrip[ts/experiments/scriptVoltage.js"></script>
+					<script src="/javascrip[ts/experiments/scriptCurrent.js"></script>
 					<br><br>
 					<a class="btn btn-primary" href="/users/practicalexperiments/buckconverter">Return to Experiment</a>
 
