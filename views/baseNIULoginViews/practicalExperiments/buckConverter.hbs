@@ -21,7 +21,7 @@
 
 					<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
 					<script type="text/javascript">
-						var dataJSON = "{{ resultData }}".replace('null','');
+						var dataJSON = "{{ resultData }}".replace('null', '');
 						dataJSON = JSON.parse(dataJSON.replace(/&quot;/g, '"'));
 
 						var graphCurrentTime = [];
@@ -98,8 +98,8 @@
 						}
 						console.log(dataVoltage);
 					</script>
-					<script src="/javascripts/experiments/scriptVoltage.js"></script>
-					<script src="/javascripts/experiments/scriptCurrent.js"></script>
+					<script src="/javascripts/experiments/buckConverter/scriptVoltage.js"></script>
+					<script src="/javascripts/experiments/buckConverter/scriptCurrent.js"></script>
 					<br><br>
 					<a class="btn btn-primary" href="/users/practicalexperiments/buckconverter">Return to Experiment</a>
 
@@ -195,8 +195,8 @@
 						<h4>PWM</h4>
 						<img src="/images/experiments/buckConverter/pwmSVG.svg" id="ght" class="img-svg" />
 						<br>
-						<input type="number" min="0" step="1" class="form-control" id="frequencyBuck" name="frequencyBuck"
-						 placeholder="Frequency" required>
+						<input type="number" min="0" step="1" class="form-control" id="frequencyBuck" name="frequencyBuck" placeholder="Frequency"
+						 required>
 					</div>
 				</div>
 				<br>

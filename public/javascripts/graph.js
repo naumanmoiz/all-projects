@@ -9,12 +9,12 @@ var margin = { top: 20, right: 30, bottom: 30, left: 50 },
 
 var x = d3.scale
 	.linear()
-	.domain([d3.min(graphTime), d3.max(graphTime)])
+	.domain([xMinRange, xMaxRange])
 	.range([0, width]);
 
 var y = d3.scale
 	.linear()
-	.domain([-50, 50])
+	.domain([yMinRange, yMaxRange])
 	.range([height, 0]);
 
 var xAxis = d3.svg
