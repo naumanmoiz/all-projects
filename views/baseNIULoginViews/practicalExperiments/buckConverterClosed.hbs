@@ -1,0 +1,83 @@
+<br>
+<!-- Start Main Content -->
+<div class="col-sm-9 col-sm-push-3" id="contentwithleftnav">
+	<contenttext>
+		<h2 style="margin-top:10px;">Practical Experiment 4 : Buck Converter Closed</h2>
+		<br>
+
+		<!-- Start of Content -->
+
+		<!-- Start of Graph -->
+		{{#if resultData}}
+		<div class="row">
+			<div class="col-lg-12 col-md-12" id="graphD3">
+				
+                <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+                <script type="text/javascript">
+                
+                </script>
+                <script type="text/javascript" src="/javascripts/graph.js"></script>
+				<br><br>
+				<a class="btn btn-primary" href="/users/practicalexperiments/buckConverterClosed">Return to Experiment</a>
+
+			</div>
+		</div>
+        <!-- End of Graph -->
+
+		<!-- Start of Form-->
+		{{else}}
+		<form class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckConverterClosed">
+			<div class="form-group">
+				<label for="VO1BuckClosed" class="col-sm-2 control-label">VO1</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" class="form-control" id="VO1BuckClosed" name="VO1BuckClosed"
+					 placeholder="Output Voltage 1" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="VO2BuckClosed" class="col-sm-2 control-label">VO2</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" class="form-control" id="VO2BuckClosed" name="VO2BuckClosed"
+					 placeholder="Output Voltage 2" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="VO3BuckClosed" class="col-sm-2 control-label">VO3</label>
+				<div class="col-sm-10">
+					<input type="number" min="0" class="form-control" id="VO3BuckClosed" name="VO3BuckClosed"
+					 placeholder="Output Voltage 3" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</form>
+		{{/if}}
+		<!-- End of Form -->
+
+		<!-- End of Content -->
+
+	</contenttext>
+</div>
+<!-- End Main Content -->
+
+<!-- Left bar div opening tag -->
+<div class="col-sm-3 col-sm-pull-9 leftCol">
+	<!-- Start Left Navigaton -->
+	<div class="panel-body leftnav">
+		<content>
+			<ul class="nav nav-stacked">
+				<li class="active"><a href="#"><strong>Practical Experiments</strong></a>
+					<ul class="list-group">
+						<li class="list-group-item"><a href="/users/index">Home</a></li>
+						<li class="list-group-item"><a href="/users/practicalexperiments/buckconverter">Buck Converter</a></li>
+						<li class="list-group-item active"><a href="#">Solar Panel</a></li>
+						<li class="list-group-item"><a href="/users/practicalexperiments/boostconverter">Boost Converter</a></li>
+					</ul>
+				</li>
+			</ul>
+		</content>
+	</div>
+	<!-- End Left Navigation -->

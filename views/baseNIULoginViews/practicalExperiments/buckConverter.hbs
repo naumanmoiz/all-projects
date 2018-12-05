@@ -15,11 +15,13 @@
 			<!-- Start of Graph -->
 			{{#if resultData}}
 			<div class="row">
+				<div id="graphCurrent"></div>
+				<div id="graphVoltage"></div>
 				<div class="col-lg-12 col-md-12" id="graphD3">
 
 					<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
 					<script type="text/javascript">
-						var dataJSON = "{{ resultData }}";
+						var dataJSON = "{{ resultData }}".replace('null','');
 						dataJSON = JSON.parse(dataJSON.replace(/&quot;/g, '"'));
 
 						var graphCurrentTime = [];
@@ -96,8 +98,8 @@
 						}
 						console.log(dataVoltage);
 					</script>
-					<script src="/javascrip[ts/experiments/scriptVoltage.js"></script>
-					<script src="/javascrip[ts/experiments/scriptCurrent.js"></script>
+					<script src="/javascripts/experiments/scriptVoltage.js"></script>
+					<script src="/javascripts/experiments/scriptCurrent.js"></script>
 					<br><br>
 					<a class="btn btn-primary" href="/users/practicalexperiments/buckconverter">Return to Experiment</a>
 
@@ -135,7 +137,7 @@
 						<h4>Resistor</h4>
 						<img src="/images/experiments/buckConverter/resistor.svg" id="avu" class="img-svg rotateimg90" />
 						<br>
-						<input type="number" min="0" max="40000000" step="0.0001" class="form-control" id="resistanceBuck" name="resistanceBuck"
+						<input type="number" min="0" step="0.0001" class="form-control" id="resistanceBuck" name="resistanceBuck"
 						 placeholder="Resistance" required>
 					</div>
 				</div>
@@ -144,7 +146,7 @@
 						<h4>Inductor</h4>
 						<img src="/images/experiments/buckConverter/inductor.svg" id="bhw" class="img-svg" />
 						<br>
-						<input type="number" min="0" max="1" step="0.0000000001" class="form-control" id="inductanceBuck" name="inductanceBuck"
+						<input type="number" min="0" step="0.0000000001" class="form-control" id="inductanceBuck" name="inductanceBuck"
 						 placeholder="Henry" required>
 					</div>
 				</div>
@@ -154,7 +156,7 @@
 						<h4>Diode</h4>
 						<img src="/images/experiments/buckConverter/diode.svg" id="cvx" class="img-svg rotateimg90" />
 						<br>
-						<input type="number" min="0" max="1" step="0.0001" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck"
+						<input type="number" min="0" step="0.0001" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck"
 						 placeholder="Duty Cycle" required>
 					</div>
 				</div>
@@ -172,7 +174,7 @@
 						<h4>Capacitor</h4>
 						<img src="/images/experiments/buckConverter/capacitor_elko.svg" id="evv" class="img-svg" />
 						<br>
-						<input type="number" min="0.0001" max="0.0009" step="0.0000000001" class="form-control" id="capacitanceBuck" name="capacitanceBuck"
+						<input type="number" min="0.0001" step="0.0000000001" class="form-control" id="capacitanceBuck" name="capacitanceBuck"
 						 placeholder="Capacitance" required>
 					</div>
 				</div>
@@ -183,7 +185,7 @@
 						<img src="https://upload.wikimedia.org/wikipedia/commons/archive/d/df/20070922204459%21Battery_symbol.svg" id="fvz"
 						 class="img-svg" />
 						<br>
-						<input type="number" min="0" max="400000" step="0.0001" class="form-control" id="voltageInputBuck" name="voltageInputBuck"
+						<input type="number" min="0" step="0.0001" class="form-control" id="voltageInputBuck" name="voltageInputBuck"
 						 placeholder="Voltage Input" required>
 					</div>
 				</div>
@@ -193,7 +195,7 @@
 						<h4>PWM</h4>
 						<img src="/images/experiments/buckConverter/pwmSVG.svg" id="ght" class="img-svg" />
 						<br>
-						<input type="number" min="0" max="40000000" step="1" class="form-control" id="frequencyBuck" name="frequencyBuck"
+						<input type="number" min="0" step="1" class="form-control" id="frequencyBuck" name="frequencyBuck"
 						 placeholder="Frequency" required>
 					</div>
 				</div>

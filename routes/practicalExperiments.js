@@ -49,15 +49,48 @@ router.post('/buckconverter', authenticate, function(req, res, next) {
 
 	var buckOutputData = null;
 
+	/*
+	var client = new net.Socket();
+
+	client.connect(6801, '127.0.0.1', function() {
+		console.log('Connected');
+		client.write(JSON.stringify(requestInput));
+	});
+
+	client.on('data', function(data) {
+		console.log('Received: ' + data);
+		client.destroy(); // kill client after server's response
+	});
+
+	client.on('close', function() {
+		console.log('Connection closed');
+
+		res.render('baseNIULoginViews/practicalExperiments/buckConverter', {
+			title:
+				'Buck Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+			loginLink: '/users/logout',
+			loginData: 'Logout',
+			resultData: data,
+			layout: 'layouts/baseNIULoginLayout.hbs'
+		});
+	});
+	*/
+	
 	const client = net.createConnection({ port: 6801 }, () => {
 		// 'connect' listener
 		console.log('Connected to server!');
 		client.write(JSON.stringify(requestInput));
 	});
 	  
-	client.on('data', (data) => {
-		buckOutputData = data;
-		client.end();
+	client.on('data', (data) => {		
+		if (data == null)
+		{
+			client.end();
+		}
+		else 
+		{
+			buckOutputData += data;
+		}
 	});
 
 	client.on('error', function(err) {
@@ -66,8 +99,7 @@ router.post('/buckconverter', authenticate, function(req, res, next) {
 
 	client.on('end', () => {
 		console.log('Disconnected from server');
-		console.log('Recieved' + buckOutputData);
-
+		console.log('Recieved', buckOutputData);
 		res.render('baseNIULoginViews/practicalExperiments/buckConverter', {
 			title:
 				'Buck Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
@@ -77,7 +109,91 @@ router.post('/buckconverter', authenticate, function(req, res, next) {
 			layout: 'layouts/baseNIULoginLayout.hbs'
 		});
 	});
+	
+});
 
+/* GET buckconverter page. */
+router.get('/buckConverterClosed', authenticate, function(req, res, next) {
+	res.render('baseNIULoginViews/practicalExperiments/buckConverterClosed', {
+		title:
+			'Buck Converter Closed (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+		loginLink: '/users/logout',
+		loginData: 'Logout',
+		layout: 'layouts/baseNIULoginLayout.hbs'
+	});
+});
+
+/* POST buckconverter page. */
+router.post('/buckConverterClosed', authenticate, function(req, res, next) {
+	var requestInput = {
+		VO1: req.body.VO1BuckClosed,
+		VO2: req.body.VO2BuckClosed,
+		VO3: req.body.VO3BuckClosed
+	};
+
+	var buckOutputData = null;
+
+	/*
+	var client = new net.Socket();
+
+	client.connect(6801, '127.0.0.1', function() {
+		console.log('Connected');
+		client.write(JSON.stringify(requestInput));
+	});
+
+	client.on('data', function(data) {
+		console.log('Received: ' + data);
+		client.destroy(); // kill client after server's response
+	});
+
+	client.on('close', function() {
+		console.log('Connection closed');
+
+		res.render('baseNIULoginViews/practicalExperiments/buckConverter', {
+			title:
+				'Buck Converter (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+			loginLink: '/users/logout',
+			loginData: 'Logout',
+			resultData: data,
+			layout: 'layouts/baseNIULoginLayout.hbs'
+		});
+	});
+	*/
+	
+	const client = net.createConnection({ port: 6803 }, () => {
+		// 'connect' listener
+		console.log('Connected to server!');
+		client.write(JSON.stringify(requestInput));
+	});
+	  
+	client.on('data', (data) => {		
+		if (data == null)
+		{
+			client.end();
+		}
+		else 
+		{
+			buckOutputData += data;
+		}
+	});
+
+	client.on('error', function(err) {
+		console.log(err);
+	});
+
+	client.on('end', () => {
+		console.log('Disconnected from server');
+		console.log('Recieved', buckOutputData);
+		res.render('baseNIULoginViews/practicalExperiments/buckConverterClosed', {
+			title:
+				'Buck Converter Closed (Practical Experiments) - NIU - Virtual Renewable Energy Laboratory',
+			loginLink: '/users/logout',
+			loginData: 'Logout',
+			resultData: buckOutputData,
+			layout: 'layouts/baseNIULoginLayout.hbs'
+		});
+	});
+	
 });
 
 /* GET solarpanel page. */
