@@ -1,0 +1,13 @@
+{
+  "name": "RefereeAssistant",
+  "description": "The football assistant is here! Record your fouls, offside and goals in this new app that is suitable for any referee  for any match from a street match to a world famous app. You can record the matches fouls offsides and goal along with two integers.",
+  "launch_path": "/MainPage.html",
+  "icons": {
+    "128": "/Logo.jpg"
+  },
+  "developer": {
+    "name": "NightCoders (Nauman Moiz, Rajat Ujawane, Akshay Agarwal, Amit Hattimare)"
+    
+  },
+  "default_locale": "en"
+}

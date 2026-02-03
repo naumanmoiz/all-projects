@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="MainStyle.css"/>
+    <title></title>
+
+    <script>
+        function removew() {
+            if (
+            document.getElementById("sltt").style.display == "none") {
+                document.getElementById("sltt").style.display = "block";
+                document.getElementById("crtt").style.display = "none";
+            }
+            else {
+                document.getElementById("sltt").style.display = "none";
+                document.getElementById("crtt").style.display = "block";
+            }
+        }
+        function stg() {
+            document.getElementById("sltt").style.display = "none";
+            document.getElementById("t1zone").style.display = "block";
+            document.getElementById("t2zone").style.display = "none";
+            document.getElementById("goal").style.display = "block";
+            var e = document.getElementById("Team2");
+            var g = document.getElementById("Team1");
+
+            var strUserg = g.options[g.selectedIndex].value;
+            var strUser = e.options[e.selectedIndex].value;
+
+            document.getElementById("t1name").innerHTML = g.value;
+            document.getElementById("t2name").innerHTML = e.value;
+            document.getElementById("tnameg").innerHTML = g.value;
+            document.getElementById("tm1").value = "Goto " + strUser;
+        }
+
+        function rt2() {
+            document.getElementById("t1zone").style.display = "none";
+            document.getElementById("t2zone").style.display = "block";
+            var e = document.getElementById("Team1");
+            
+            var strUser = e.options[e.selectedIndex].value;
+
+            var g = document.getElementById("Team2");
+
+            var strUser = g.options[g.selectedIndex].value;
+
+            document.getElementById("tnameg2").innerHTML = g.value;
+
+            document.getElementById("tm2").value = "Goto " +strUser;
+        }
+            function addy(){
+            var select = document.getElementById("Team1");
+            select.options[select.options.length] = new Option(document.getElementById("tnm").value, "Value1");
+            var select = document.getElementById("Team2");
+            select.options[select.options.length] = new Option(document.getElementById("tnm").value, "Value1");
+
+            document.getElementById("sltt").style.display = "block";
+            document.getElementById("crtt").style.display = "none";
+
+            }
+            var i = 0 , j=0 ,iofs=0,jofs=0 , f1=0 ,f2 =0;
+            function incgoal1() {
+                i++;
+
+                document.getElementById("goal1").innerHTML = i;
+            }
+            function incgoal2() {
+                j++;
+                document.getElementById("goal2").innerHTML = j;
+            }
+            function incofs1() {
+                iofs++;
+
+                document.getElementById("t1ofs").innerHTML = iofs;
+            }
+            function incofs2() {
+                jofs++;
+
+                document.getElementById("t2ofs").innerHTML = jofs;
+            }
+            function incf1() {
+                f1++;
+
+                document.getElementById("xx1").innerHTML = f1;
+            }
+            function incf2() {
+                f2++;
+
+                document.getElementById("xx2").innerHTML = f2;
+            }
+
+            function anal1() {
+                document.getElementById("sltt").style.display = "none";
+                document.getElementById("crtt").style.display = "none";
+                document.getElementById("t1zone").style.display = "none";
+                document.getElementById("t2zone").style.display = "none";
+                document.getElementById("goal").style.display = "none";
+                document.getElementById("anald").style.display = "block";
+
+                var e = document.getElementById("Team2");
+                var g = document.getElementById("Team1");
+
+                var strUserg = g.options[g.selectedIndex].value;
+                var strUser = e.options[e.selectedIndex].value;
+                if (i > j) {
+                    
+                    document.getElementById("anald").innerHTML = strUserg + " Won the Match";
+                }
+                else {
+                    document.getElementById("anald").innerHTML = strUser + " Won the Match";
+                }
+
+            }
+
+
+
+
+
+    
+    </script>
+</head>
+<body>
+    <div id="sltt">
+    <form >
+        Team 1
+        <br />
+        <select name="Team 1" id="Team1">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Real Mandrid">Real Mandrid</option>
+        <option value="Manchester United">Manchester United</option>
+        <option value="Arsenal">Arsenal</option>
+        <option value="Ac Milan">Ac Milan</option>
+        </select>
+     
+        <br />
+        <br />
+        Team 2<br />
+        <select name="Team 2" id="Team2">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Real mandrid" selected="selected">Real Mandrid</option>
+        <option value="Manchester United">Manchester United</option>
+        <option value="Arsenal">Arsenal</option>
+        <option value="Ac Milan">Ac Milan</option>
+        </select>
+        <br /><br />
+        <input type="button" value="Go" id="submit1" onclick="stg()" />
+       <input type="button" value="Create Team" id="submit2" onclick="removew()"  />  
+        
+        </form>
+  </div>
+ 
+    <div id="crtt">
+ <form action="iwjij">
+<input type="text" placeholder="TEAM NAME" id="tnm"/><br /><br />
+<input type="text" placeholder="PLAYER 1"/><br /><br />
+<input type="text" placeholder="PLAYER 2"/><br /><br />
+<input type="text" placeholder="PLAYER 3"/><br /><br />
+<input type="text" placeholder="PLAYER 4"/><br /><br />
+<input type="text" placeholder="PLAYER 5"/><br /><br />
+<input type="text" placeholder="PLAYER 6"/><br /><br />
+<input type="text" placeholder="PLAYER 7"/><br /><br />
+<input type="text" placeholder="PLAYER 8"/><br /><br />
+<input type="text" placeholder="PLAYER 9"/><br /><br />
+<input type="text" placeholder="PLAYER 10"/><br /><br />
+<input type="text" placeholder="PLAYER 11"/><br /><br />
+ <input type="button" value="Create Team" id="bck1" onclick="addy()"/>
+ </form>
+ </div>
+
+<div id="t1zone">
+    
+    <input type="button" value="Team 2" id="tm1" onclick="rt2()"/><br /><br />
+    <div id="tnameg"></div>
+    <input type="button" value="Offside" id="ofs1" onclick="incofs1()"/>
+    <div id="t1ofs">0</div><br />
+    <input type="button" value="Foul" id="fl1" onclick="incf1()"/>
+    <div id="xx1">0</div>
+</div>
+
+<div id="t2zone">
+    <input type="button" value="Team 1" id="tm2" onclick="stg()"/><br /><br />
+    <div id="tnameg2"></div>
+    <input type="button" value="Offside" id="ofs2" onclick="incofs2()"/>
+    <div id="t2ofs">0</div><br />
+    <input type="button" value="Foul" id="fl2" onclick="incf2()"/>
+    <div id="xx2">0</div>
+</div>
+    <div id="goal">
+        <div id="t1name"></div>
+        <input type="button" value="Goal" id="g1" onclick="incgoal1()"/>
+        <div id="goal1">0</div><br />
+        <div id="t2name"></div>
+        <input type="button" value="Goal" id="g2" onclick="incgoal2()"/>
+      
+       <div id="goal2">0</div>
+        <input type="button" value="Match Over" id="anal" onclick="anal1()"/>
+ </div>
+   
+    <div id="anald">
+
+    </div>
+
+</body>
+</html>
