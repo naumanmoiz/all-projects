@@ -1,0 +1,268 @@
+<br>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/javascripts/experiments/buckconverter.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/buckConverter.css">
+<!-- Start Main Content -->
+<center>
+	<div class="col-sm-12">
+		<contenttext>
+			<h2 style="margin-top:10px;">Practical Experiment 1 : Buck Converter</h2>
+			<br>
+
+			<!-- Start of Content -->
+
+			<!-- Start of Graph -->
+			{{#if resultData}}
+			<div class="row">
+				<div id="graphCurrent"></div>
+				<div id="graphVoltage"></div>
+				<div class="col-lg-12 col-md-12" id="graphD3">
+
+					<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+					<script type="text/javascript">
+						var dataJSON = "{{ resultData }}".replace('null', '');
+						dataJSON = JSON.parse(dataJSON.replace(/&quot;/g, '"'));
+
+						var graphCurrentTime = [];
+						var xCurrentMin = null;
+						var xCurrentMax = null;
+
+						var graphVoltageTime = [];
+						var xVoltageMin = null;
+						var xVoltageMax = null;
+
+						var graphCurrent = [];
+						var yCurrentMin = null;
+						var yCurrentMax = null;
+
+						var graphTempVoltage = [];
+						var graphVoltage = [];
+						var yVoltageMin = null;
+						var yVoltageMax = null;
+
+						for (i = 0; i <= 5000; i++) {
+							// Setting up for X-Axis
+							graphCurrentTime[i] = dataJSON.T[i];
+							if (graphCurrentTime[i] < graphCurrentTime[i - 1]) {
+								xCurrentMin = graphCurrentTime[i];
+							}
+							if (graphCurrentTime[i] > graphCurrentTime[i - 1]) {
+								xCurrentMax = graphCurrentTime[i];
+							}
+
+							graphVoltageTime[i] = dataJSON.Time[i];
+							if (graphVoltageTime[i] < graphVoltageTime[i - 1]) {
+								xVoltageMin = graphVoltageTime[i];
+							}
+							if (graphVoltageTime[i] > graphVoltageTime[i - 1]) {
+								xVoltageMax = graphVoltageTime[i];
+							}
+
+							// Setting up for Y-Axis
+							graphCurrent[i] = dataJSON.I[i];
+							if (graphCurrent[i] < graphCurrent[i - 1]) {
+								yCurrentMin = graphCurrent[i];
+							}
+							if (graphCurrent[i] > graphCurrent[i - 1]) {
+								yCurrentMax = graphCurrent[i];
+							}
+
+							graphTempVoltage[i] = dataJSON["Outputs Data"][0][i];
+							graphVoltage.push(graphTempVoltage[i][0]);
+							if (graphVoltage[i] < graphVoltage[i - 1]) {
+								yVoltageMin = graphVoltage[i];
+							}
+							if (graphVoltage[i] > graphVoltage[i - 1]) {
+								yVoltageMax = graphVoltage[i];
+							}
+						}
+
+						var dataCurrent = [
+							[{ x: graphCurrentTime[0], y: graphCurrent[0] }]
+						];
+
+						var dataVoltage = [
+							[{ x: graphVoltageTime[0], y: graphVoltage[0] }]
+						];
+
+						for (j = 0; j <= 5000; j++) {
+							dataCurrent[0].push({
+								x: graphCurrentTime[j],
+								y: graphCurrent[j]
+							});
+							dataVoltage[0].push({
+								x: graphVoltageTime[j],
+								y: graphVoltage[j]
+							});
+						}
+						console.log(dataVoltage);
+					</script>
+					<script src="/javascripts/experiments/buckConverter/scriptVoltage.js"></script>
+					<script src="/javascripts/experiments/buckConverter/scriptCurrent.js"></script>
+					<br><br>
+					<a class="btn btn-primary" href="/users/practicalexperiments/buckconverter">Return to Experiment</a>
+
+				</div>
+			</div>
+			<!-- End of Graph -->
+
+			{{else}}
+			<div class="circuit-container js-circuit-container col-md-9">
+				<span class="buck-circuit js-circuit"></span>
+
+				<span class="buck-circuit-connection a js-circuit-connection" id="zva"></span>
+				<span class="buck-circuit-connection b js-circuit-connection" id="yhb"></span>
+				<span class="buck-circuit-connection c js-circuit-connection" id="xvc"></span>
+				<span class="buck-circuit-connection d js-circuit-connection" id="whd"></span>
+				<span class="buck-circuit-connection e js-circuit-connection" id="vve"></span>
+				<span class="buck-circuit-connection f js-circuit-connection" id="uvf"></span>
+				<span class="buck-circuit-connection g js-circuit-connection" id="thg"></span>
+
+				<span class="buck-circuit-auto js-circuit"></span>
+
+				<span class="buck-circuit-connection h" id="h"></span>
+				<span class="buck-circuit-connection i" id="i"></span>
+				<span class="buck-circuit-connection j" id="j"></span>
+				<span class="buck-circuit-connection k" id="k"></span>
+				<span class="buck-circuit-connection l" id="l"></span>
+				<span class="buck-circuit-connection m" id="m"></span>
+				<span class="buck-circuit-connection n" id="n"></span>
+			</div>
+
+			<!-- Start of Form and Components -->
+			<form id="buckConverter" class="col-md-3" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckconverter">
+				<div class="drag-container">
+					<div id="di21" class="drag-item">
+						<h4>Resistor</h4>
+						<img src="/images/experiments/buckConverter/resistor.svg" id="avu" class="img-svg rotateimg90" />
+						<br>
+						<input type="number" min="0" step="0.0001" class="form-control" id="resistanceBuck" name="resistanceBuck"
+						 placeholder="Resistance" required>
+					</div>
+				</div>
+				<div class="drag-container">
+					<div id="di22" class="drag-item">
+						<h4>Inductor</h4>
+						<img src="/images/experiments/buckConverter/inductor.svg" id="bhw" class="img-svg" />
+						<br>
+						<input type="number" min="0" step="0.0000000001" class="form-control" id="inductanceBuck" name="inductanceBuck"
+						 placeholder="Henry" required>
+					</div>
+				</div>
+
+				<div class="drag-container">
+					<div id="di22" class="drag-item">
+						<h4>Diode</h4>
+						<img src="/images/experiments/buckConverter/diode.svg" id="cvx" class="img-svg rotateimg90" />
+						<br>
+						<input type="number" min="0" step="0.0001" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck"
+						 placeholder="Duty Cycle" required>
+					</div>
+				</div>
+
+				<div class="drag-container">
+					<div id="di22" class="drag-item">
+						<h4>Transistor</h4>
+						<img src="/images/experiments/buckConverter/transistor.svg" id="dhy" class="img-svg" />
+						<br>
+					</div>
+				</div>
+
+				<div class="drag-container">
+					<div id="di22" class="drag-item">
+						<h4>Capacitor</h4>
+						<img src="/images/experiments/buckConverter/capacitor_elko.svg" id="evv" class="img-svg" />
+						<br>
+						<input type="number" min="0.0001" step="0.0000000001" class="form-control" id="capacitanceBuck" name="capacitanceBuck"
+						 placeholder="Capacitance" required>
+					</div>
+				</div>
+
+				<div class="drag-container">
+					<div id="di23" class="drag-item">
+						<h4>Battery</h4>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/archive/d/df/20070922204459%21Battery_symbol.svg" id="fvz"
+						 class="img-svg" />
+						<br>
+						<input type="number" min="0" step="0.0001" class="form-control" id="voltageInputBuck" name="voltageInputBuck"
+						 placeholder="Voltage Input" required>
+					</div>
+				</div>
+
+				<div class="drag-container">
+					<div id="di23" class="drag-item">
+						<h4>PWM</h4>
+						<img src="/images/experiments/buckConverter/pwmSVG.svg" id="ght" class="img-svg" />
+						<br>
+						<input type="number" min="0" step="1" class="form-control" id="frequencyBuck" name="frequencyBuck" placeholder="Frequency"
+						 required>
+					</div>
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary" onclick="onBtnClick()">Submit</button>
+			</form>
+			<!-- End of Form and Components -->
+
+			<!-- Start of Form
+			<form class="form-horizontal" id="buckConverter" role="form" data-toggle="validator" method="POST" action="/users/practicalexperiments/buckconverter">
+				<div class="form-group">
+					<label for="voltageInputBuck" class="col-sm-2 control-label">Voltage Input</label>
+					<div class="col-sm-10">
+						<input type="number" min="0" max="400000" step="0.0001" class="form-control" id="voltageInputBuck" name="voltageInputBuck"
+						placeholder="Voltage Input" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dutyCycleBuck" class="col-sm-2 control-label">Duty Cycle</label>
+					<div class="col-sm-10">
+						<input type="number" min="0" max="1" step="0.0001" class="form-control" id="dutyCycleBuck" name="dutyCycleBuck"
+						placeholder="Duty Cycle" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inductanceBuck" class="col-sm-2 control-label">Inductance</label>
+					<div class="col-sm-10">
+						<input type="number" min="0" max="1" step="0.0000000001" class="form-control" id="inductanceBuck" name="inductanceBuck"
+						placeholder="Inductance (in Henry)" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="capacitanceBuck" class="col-sm-2 control-label">Capacitance</label>
+					<div class="col-sm-10">
+						<input type="number" min="0.0001" max="0.0009" step="0.0000000001" class="form-control" id="capacitanceBuck" name="capacitanceBuck"
+						placeholder="Capacitance" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="resistanceBuck" class="col-sm-2 control-label">Resistance</label>
+					<div class="col-sm-10">
+						<input type="number" min="0" max="40000000" step="0.0001" class="form-control" id="resistanceBuck" name="resistanceBuck"
+						placeholder="Resistance" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="frequencyBuck" class="col-sm-2 control-label">Frequency</label>
+					<div class="col-sm-10">
+						<input type="number" min="0" max="40000000" step="1" class="form-control" id="frequencyBuck" name="frequencyBuck"
+						placeholder="Frequency" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary" onclick="onBtnClick()">Submit</button>
+					</div>
+				</div>
+			</form>
+			{{/if}}
+			End of Form -->
+
+			<!-- End of Content -->
+
+		</contenttext>
+	</div>
+</center>
+<!-- End Main Content -->
+
+<!-- Left bar div opening tag -->
+<div class="col-sm-3 col-sm-pull-9 leftCol">

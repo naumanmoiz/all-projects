@@ -1,0 +1,25 @@
+/* @font-face {font-family: 'LucidaBri-DemIta';src: url('https://www.niu.edu/masterto/includes/webfonts/eot/style_4906.eot');src: url('https://www.niu.edu/masterto/includes/webfonts/eot/style_4906.eot?#iefix') format('embedded-opentype'),url('https://www.niu.edu/masterto/includes/webfonts/woff/style_4906.woff') format('woff'),url('https://www.niu.edu/masterto/includes/webfonts/ttf/style_4906.ttf') format('truetype'),url('https://www.niu.edu/masterto/includes/webfonts/svg/style_4906.svg#LucidaBri-DemIta') format('svg');}
+ @font-face {font-family: 'LucidaBri-Dem';src: url('https://www.niu.edu/masterto/includes/webfonts/eot/style_4904.eot');src: url('https://www.niu.edu/masterto/includes/webfonts/eot/style_4904.eot?#iefix') format('embedded-opentype'),url('https://www.niu.edu/masterto/includes/webfonts/woff/style_4904.woff') format('woff'),url('https://www.niu.edu/masterto/includes/webfonts/ttf/style_4904.ttf') format('truetype'),url('https://www.niu.edu/masterto/includes/webfonts/svg/style_4904.svg#LucidaBri-Dem') format('svg');}
+*/
+
+/** Added new Relative pathnames to file per Prashanth on 10.20.2014 **/
+@font-face {
+	font-family: 'LucidaBri-DemIta';
+	src: url('/masterto/includes/webfonts/eot/style_4906.eot');
+	src: url('/masterto/includes/webfonts/eot/style_4906.eot?#iefix')
+			format('embedded-opentype'),
+		url('/masterto/includes/webfonts/woff/style_4906.woff') format('woff'),
+		url('/masterto/includes/webfonts/ttf/style_4906.ttf') format('truetype'),
+		url('/masterto/includes/webfonts/svg/style_4906.svg#LucidaBri-DemIta')
+			format('svg');
+}
+@font-face {
+	font-family: 'LucidaBri-Dem';
+	src: url('/masterto/includes/webfonts/eot/style_4904.eot');
+	src: url('/masterto/includes/webfonts/eot/style_4904.eot?#iefix')
+			format('embedded-opentype'),
+		url('/masterto/includes/webfonts/woff/style_4904.woff') format('woff'),
+		url('/masterto/includes/webfonts/ttf/style_4904.ttf') format('truetype'),
+		url('/masterto/includes/webfonts/svg/style_4904.svg#LucidaBri-Dem')
+			format('svg');
+}

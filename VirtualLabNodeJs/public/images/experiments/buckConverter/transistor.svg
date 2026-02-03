@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 13.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 14948)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   id="svg2"
+   x="0px"
+   y="0px"
+   width="40.576351"
+   height="39.09"
+   viewBox="0 0 40.576353 39.09"
+   enable-background="new 0 0 32 32"
+   xml:space="preserve"
+   sodipodi:docname="transistor.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+   id="metadata865"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+   id="defs863" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1278"
+   inkscape:window-height="1368"
+   id="namedview861"
+   showgrid="true"
+   showguides="true"
+   inkscape:guide-bbox="true"
+   inkscape:measure-start="49.3465,14.8911"
+   inkscape:measure-end="24.9505,-8.63366"
+   inkscape:zoom="12.625"
+   inkscape:cx="20.37223"
+   inkscape:cy="18.473675"
+   inkscape:window-x="1273"
+   inkscape:window-y="0"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg2"
+   fit-margin-top="0"
+   fit-margin-left="0"
+   fit-margin-right="0"
+   fit-margin-bottom="0"><sodipodi:guide
+     position="-15.711827,20.541003"
+     orientation="0,1"
+     id="guide4570"
+     inkscape:locked="false" /><inkscape:grid
+     type="xygrid"
+     id="grid4586"
+     originx="20.288176"
+     originy="-18.458997" /><sodipodi:guide
+     position="10.288174,36.541002"
+     orientation="1,0"
+     id="guide5139"
+     inkscape:locked="false" /><sodipodi:guide
+     position="30.288175,-0.45899736"
+     orientation="1,0"
+     id="guide5141"
+     inkscape:locked="false" /></sodipodi:namedview>
+
+<path
+   style="fill:none;stroke:#b87333;stroke-width:1.51181102;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="M 28.288174,38.549 40.288176,21.548997"
+   id="path4582"
+   inkscape:connector-curvature="0" /><path
+   style="fill:#c8b7b7;stroke:#b87333;stroke-width:1.51181102;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   d="M 12.288174,38.549 0.288176,21.548997"
+   id="path4584"
+   inkscape:connector-curvature="0" /><g
+   id="icon"
+   transform="translate(4.3301728,-1.689)">
+	<g
+   id="part">
+		<g
+   id="Transistor_legs">
+			<rect
+   id="rect9479"
+   x="14.641"
+   y="31.790001"
+   width="2.6919999"
+   height="8.9890003"
+   style="fill:#8c8c8c" />
+			<rect
+   id="rect9481"
+   x="5.6690001"
+   y="31.790001"
+   width="2.6930001"
+   height="8.9890003"
+   style="fill:#8c8c8c" />
+			<rect
+   id="rect9483"
+   x="23.614"
+   y="31.790001"
+   width="2.6930001"
+   height="8.9890003"
+   style="fill:#8c8c8c" />
+		</g>
+		<g
+   id="Transistor_pins">
+			<rect
+   id="rect9506_1_"
+   x="14.641"
+   y="20.104"
+   width="2.6919999"
+   height="11.688"
+   style="fill:#8c8c8c" />
+			<path
+   id="path9510_1_"
+   d="m 9.778,20.104 v 4.146 c 0,0.528 -0.978,1.323 -1.498,1.78 -1.282,1.113 -2.61,2.273 -2.61,3.74 v 2.023 h 2.693 c 0,0 0,-1.25 0,-1.512 0,-0.646 1.13,-1.736 1.688,-2.211 1.246,-1.088 2.431,-2.113 2.431,-3.437 v -4.53 H 9.778 Z"
+   inkscape:connector-curvature="0"
+   style="fill:#8c8c8c" />
+			<path
+   id="path9514_1_"
+   d="m 22.195,20.104 v 4.146 c 0,0.528 0.977,1.323 1.499,1.78 1.285,1.113 2.61,2.273 2.61,3.74 v 2.023 h -2.693 c 0,0 0,-1.25 0,-1.512 0,-0.646 -1.13,-1.736 -1.686,-2.211 -1.248,-1.088 -2.433,-2.113 -2.433,-3.437 v -4.53 h 2.703 z"
+   inkscape:connector-curvature="0"
+   style="fill:#8c8c8c" />
+		</g>
+		<rect
+   id="rect9553_1_"
+   x="7.6880002"
+   y="7.5120001"
+   width="16.598"
+   height="12.588"
+   style="fill:#1a1a1a" />
+		<path
+   id="path9555_1_"
+   d="m 23.029,7.512 v 3.066 10.286 2.303 c 0.79,-0.891 1.256,-1.941 1.256,-3.065 v 0 -12.59 z"
+   inkscape:connector-curvature="0"
+   style="fill:#141414" />
+		<path
+   id="path9557_1_"
+   d="M 8.945,7.512 H 7.69 v 12.588 0 c 0,1.125 0.466,2.175 1.256,3.065 V 20.862 10.58 Z"
+   inkscape:connector-curvature="0"
+   style="fill:#242424" />
+		<path
+   id="path9559_1_"
+   d="m 7.688,7.512 v 0 c 0,1.125 0.466,2.176 1.256,3.066 h 14.095 c 0.79,-0.891 1.256,-1.941 1.256,-3.066 v 0 z"
+   inkscape:connector-curvature="0"
+   style="fill:#1f1f1f" />
+		<path
+   id="path9561_1_"
+   d="m 15.987,1.689 c -4.584,0 -8.3,2.607 -8.3,5.827 h 16.598 c 0,-3.219 -3.713,-5.827 -8.298,-5.827 z"
+   inkscape:connector-curvature="0"
+   style="fill:#141414" />
+		<rect
+   id="rect9563_1_"
+   x="8.9449997"
+   y="10.58"
+   width="14.096"
+   height="12.587" />
+	</g>
+	<g
+   id="label">
+		<path
+   d="m 11.907,19.639 v -6.75 h 2.701 v 1.349 h 1.35 v 1.351 h 1.351 v -2.702 h 2.699 v 6.75 h -2.699 v -1.35 h -1.351 v -1.35 h -1.35 v 2.701 h -2.701 z"
+   id="path856"
+   inkscape:connector-curvature="0"
+   style="fill:#999999" />
+	</g>
+</g></svg>
