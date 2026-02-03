@@ -1,0 +1,163 @@
+<!--
+
+File: home.html
+
+Author: Nauman Moiz Mohammed Abdul
+
+Project: Buck Converter web services
+
+Date: 09/27/2017
+
+Version: 0
+
+-->
+
+<!DOCTYPE html>
+
+<html>
+
+  <!--Import javasript library-->
+
+          
+
+    <!--Add the label to the browser tab-->
+
+    <head>
+
+        <title>Buck Converter v0</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="js/home.js"></script>
+
+    </head>
+
+   
+
+    <body>
+
+        <!--we're going to use a table to organize the elements on our page-->
+        
+
+        <table>
+
+            <!--tr specifies a new row-->
+
+            <tr>
+
+                <td>Voltage input</td>
+
+                <td><input type=text id='Vin' value='0'></td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Duty Cycle</td>
+
+                <td><input type=text id='D' value='0'></td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Inductance (in henry)</td>
+
+                <td><input type=text id='L' value='0'></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Capacitance</td>
+
+                <td><input type=text id='C' value='0'></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Resistance</td>
+
+                <td><input type=text id='R' value='10'></td>
+
+            </tr>
+
+                    
+            <tr>
+
+                <td>Cap Resistance</td>
+
+                <td><input type=text id='r1 ' value='1'></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Frequency</td>
+
+                <td><input type=text id='F' value='50000'></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Output Voltage</td>
+
+                <td><div id="Vo">0</div></td>
+
+            </tr>
+
+            
+
+            
+            <tr>
+
+                <td>Output Current</td>
+
+                <td><div id="Io">0</div></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Power</td>
+
+                <td><div id="P">0</div></td>
+
+            </tr>
+
+            <tr>
+
+                <td>deltaIL</td>
+
+                <td><div id="deltaIL">0</div></td>
+
+            </tr>
+
+            <tr>
+
+                <td>deltaIL</td>
+
+                <td><div id="graphData">0</div></td>
+
+            </tr>
+
+            <tr>
+
+               
+
+            </tr>
+
+                    </table>
+        <div id="myLineChart"></div> 
+        <p id="cid"> </p>
+
+                    <button type=button id='submitButton'>Submit</button>
+                    <button type=button id='submitGraph'>Graph</button>
+       
+
+          </body>
+
+</html>
